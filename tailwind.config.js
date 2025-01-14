@@ -5,22 +5,27 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",],
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-darkbrown-olivegreen': 'linear-gradient(60deg, #737c47, #5a5442)',
+      },
       backgroundColor: {
-        light: "rgba(255, 255, 255, 0.87)",
-        darker: "#242424",
-        dark: "#3E4145",
-        evildarker: "#2f1c1c",
+        darkbrown: "#5a5442",
+        olivegreen: "#737c47",
       },
       textColor: {
-        light: "rgba(255, 255, 255, 0.87)",
-        active: "#ee996b",
-        darker: "#242424",
-        dark: "#3E4145",
-        good: "#00c896",
-        evil: "#dd3333"
+        darkbrown: "#5a5442",
+        olivegreen: "#737c47",
       },
       borderColor: {
         evil: "#dd3333"
+      },
+      width: {
+        'smaller-screen-pc': '98vw',
+        'smaller-screen': '96vw',
+      },
+      height: {
+        'smaller-screen-pc': '96vh',
+        'smaller-screen': '98vh'
       }
     },
   },

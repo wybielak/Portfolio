@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: 'Space Grotesk', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-david {
+    background-image: url('/images/bg1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    isolation: isolate;
+}
+
+.bg-opacity::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(30deg, #5a5442, #737c47);
+    opacity: 0.2;
+    border: 0;
+    border-radius: 1.5rem;
+
+    animation: fade-in-half 1s forwards 0.5s;
+}
+
+.delayed-fade-in-anim span {
+    opacity: 0;
+    animation: fade-in 1s forwards 1.5s;
+}
+
+.fade-in-anim span {
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+
+.fade-in-anim span:nth-child(1) { animation-delay: 2.1s; }
+.fade-in-anim span:nth-child(2) { animation-delay: 2.2s; }
+.fade-in-anim span:nth-child(3) { animation-delay: 2.3s; }
+.fade-in-anim span:nth-child(4) { animation-delay: 2.4s; }
+.fade-in-anim span:nth-child(5) { animation-delay: 2.5s; }
+.fade-in-anim span:nth-child(6) { animation-delay: 2.6s; }
+.fade-in-anim span:nth-child(7) { animation-delay: 2.7s; }
+.fade-in-anim span:nth-child(8) { animation-delay: 2.8s; }
+.fade-in-anim span:nth-child(9) { animation-delay: 2.9s; }
+
+@keyframes fade-in-half {
+    to {
+        opacity: 0.5;
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
