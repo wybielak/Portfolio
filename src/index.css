@@ -34,6 +34,16 @@
     isolation: isolate;
 }
 
+.bg-image {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    isolation: isolate;
+}
+
 .bg-opacity::after {
     content: '';
     position: absolute;

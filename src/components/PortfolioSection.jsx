@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Menu from './Menu'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../mobx/Store'
+import ProjectCard from './ProjectCard'
 
 export default observer(function PortfolioSection({ title }) {
 
@@ -37,7 +38,11 @@ export default observer(function PortfolioSection({ title }) {
                         {description}
                     </p>
                 </div>
-
+            </div>
+            <div>
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
+                ))}
             </div>
         </div>
     )
