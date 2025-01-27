@@ -25,7 +25,8 @@ export default {
       },
       height: {
         'smaller-screen-pc': '96vh',
-        'smaller-screen': '98vh'
+        'smaller-screen': '98vh',
+        'halfscreen': '70vh'
       }
     },
   },

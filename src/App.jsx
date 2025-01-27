@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./components/Home"
+import PortfolioSection from "./components/PortfolioSection"
 
 const router = createBrowserRouter([
   {
@@ -8,15 +9,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/dev',
-    element: <p>dev</p>
+    element: <PortfolioSection title="Dev" />
   },
   {
     path: '/workshop',
-    element: <p>workshop</p>
+    element: <PortfolioSection title="Workshop" />
   },
   {
     path: '/pizza',
-    element: <p>pizza</p>
+    element: <PortfolioSection title="Pizza" />
   }
 ])
 

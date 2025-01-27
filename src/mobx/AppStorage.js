@@ -6,4 +6,13 @@ export default class AppStorage {
         makeAutoObservable(this)
     }
 
+    devProjects = []
+    devDesc = "i am it student"
+
+    workshopProjects = []
+    workshopDesc = "knifemaking is my hobby"
+
+    pizzaProject = []
+    pizzaDesc = "i love pizza"
+
 }

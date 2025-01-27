@@ -12,8 +12,19 @@
     padding: 0;
 }
 
-.bg-david {
+.bg-david-front {
     background-image: url('/images/bg1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    isolation: isolate;
+}
+
+.bg-david-back {
+    background-image: url('/images/bg2.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,18 +47,18 @@
 
 .fade-in-anim span {
     opacity: 0;
-    animation: fade-in 0.5s forwards;
+    animation: fade-in 0s forwards;
 }
 
 .fade-in-anim span:nth-child(1) { animation-delay: 0.5s; }
-.fade-in-anim span:nth-child(2) { animation-delay: 0.6s; }
-.fade-in-anim span:nth-child(3) { animation-delay: 0.7s; }
-.fade-in-anim span:nth-child(4) { animation-delay: 0.8s; }
-.fade-in-anim span:nth-child(5) { animation-delay: 0.9s; }
-.fade-in-anim span:nth-child(6) { animation-delay: 1s; }
-.fade-in-anim span:nth-child(7) { animation-delay: 1.1s; }
-.fade-in-anim span:nth-child(8) { animation-delay: 1.2s; }
-.fade-in-anim span:nth-child(9) { animation-delay: 1.3s; }
+.fade-in-anim span:nth-child(2) { animation-delay: 0.55s; }
+.fade-in-anim span:nth-child(3) { animation-delay: 0.6s; }
+.fade-in-anim span:nth-child(4) { animation-delay: 0.65s; }
+.fade-in-anim span:nth-child(5) { animation-delay: 0.7s; }
+.fade-in-anim span:nth-child(6) { animation-delay: 0.75s; }
+.fade-in-anim span:nth-child(7) { animation-delay: 0.8s; }
+.fade-in-anim span:nth-child(8) { animation-delay: 0.85s; }
+.fade-in-anim span:nth-child(9) { animation-delay: 0.9s; }
 
 
 .fade-in-slower-anim span {
@@ -55,9 +66,18 @@
     animation: fade-in 0.5s forwards;
 }
 
-.fade-in-slower-anim span:nth-child(1) { animation-delay: 1.5s; }
-.fade-in-slower-anim span:nth-child(2) { animation-delay: 2.0s; }
-.fade-in-slower-anim span:nth-child(3) { animation-delay: 2.5s; }
+.fade-in-slower-anim span:nth-child(1) { animation-delay: 1s; }
+.fade-in-slower-anim span:nth-child(2) { animation-delay: 1.2s; }
+.fade-in-slower-anim span:nth-child(3) { animation-delay: 1.4s; }
+
+.fade-in-slower-anim2 span {
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+
+.fade-in-slower-anim2 span:nth-child(1) { animation-delay: 0.2s; }
+.fade-in-slower-anim2 span:nth-child(2) { animation-delay: 0.4s; }
+.fade-in-slower-anim2 span:nth-child(3) { animation-delay: 0.6s; }
 
 @keyframes fade-in {
     to {
