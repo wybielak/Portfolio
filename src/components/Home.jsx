@@ -5,7 +5,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="bg-gradient-darkbrown-olivegreen w-screen h-screen flex flex-col items-center justify-center">
+            <div className="bg-gradient-darkbrown-olivegreen w-full h-screen flex flex-col items-center justify-center">
                 <div className="bg-david-front bg-opacity w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-smaller-screen-pc border-0 rounded-3xl flex flex-col items-center justify-center md:justify-end">
 
                     <div className="w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">

@@ -24,12 +24,12 @@ export default observer(function PortfolioSection({ title }) {
     }, [title])
 
     return (
-        <div className="bg-gradient-darkbrown-olivegreen w-screen h-screen flex flex-col items-center justify-start">
-            <div className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-start md:justify-around">
+        <div className="bg-gradient-darkbrown-olivegreen w-full flex flex-col items-center justify-start">
+            <div className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-around">
 
                 <Menu animSwitch={false} />
 
-                <div className='my-16'>
+                <div className='mb-48 md:mb-16'>
                     <h1 className='text-5xl md:text-8xl text-center'>
                         {title}
                     </h1>
@@ -39,7 +39,7 @@ export default observer(function PortfolioSection({ title }) {
                     </p>
                 </div>
             </div>
-            <div>
+            <div className='w-halfscreen mb-24 -mt-24 md:-mt-16 columns-1 md:columns-2 xl:columns-3'>
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}

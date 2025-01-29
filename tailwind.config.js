@@ -22,6 +22,7 @@ export default {
       width: {
         'smaller-screen-pc': '98vw',
         'smaller-screen': '96vw',
+        'halfscreen': '90vw'
       },
       height: {
         'smaller-screen-pc': '96vh',
