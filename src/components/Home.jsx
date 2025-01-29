@@ -8,8 +8,8 @@ export default function Home() {
             <div className="bg-gradient-darkbrown-olivegreen w-full h-screen flex flex-col items-center justify-center">
                 <div className="bg-david-front bg-opacity w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-smaller-screen-pc border-0 rounded-3xl flex flex-col items-center justify-center md:justify-end">
 
-                    <div className="w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">
-                        <h1 className="m-2 p-4 text-2xl md:text-9xl w-full text-center flex flex-row md:flex-col justify-between items-start md:items-center">
+                    <div className="m-2 p-4 w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">
+                        <h1 className="text-2xl md:text-9xl w-full text-center flex flex-row md:flex-col justify-between items-start md:items-center">
                             <p className="flex flex-wrap font-bold md:font-normal flex-col md:flex-row">
                                 <span>D</span>
                                 <span>a</span>

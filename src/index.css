@@ -45,6 +45,17 @@
     border-radius: 1.5rem;
 }
 
+.bg-opacity-darker::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(30deg, #5a5442, #737c47);
+    opacity: 0.6;
+    border: 0;
+    border-radius: 1.5rem;
+}
+
 .fade-in-anim span {
     opacity: 0;
     animation: fade-in 0s forwards;

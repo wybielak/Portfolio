@@ -25,16 +25,16 @@ export default observer(function PortfolioSection({ title }) {
 
     return (
         <div className="bg-gradient-darkbrown-olivegreen w-full flex flex-col items-center justify-start">
-            <div className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-evenly">
+            <div className="my-2 p-4 bg-david-back bg-opacity-darker w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-start md:justify-evenly">
 
                 <Menu animSwitch={false} />
 
-                <div className='mb-16 flex flex-col items-center justify-center gap-y-2'>
-                    <h1 className='text-5xl md:text-8xl text-center'>
+                <div className='mt-8 mb-16 flex flex-col items-center justify-center gap-y-2'>
+                    <h1 className='text-5xl md:text-8xl text-center font-bo'>
                         {title}
                     </h1>
 
-                    <p className='text-lg md:text-2xl text-center w-11/12 md:w-8/12'>
+                    <p className='text-xl md:text-2xl text-center w-11/12 md:w-8/12'>
                         {description}
                     </p>
                 </div>

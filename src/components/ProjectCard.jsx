@@ -7,7 +7,6 @@ export default function ProjectCard({ project }) {
   return (
     <>
       <div className="mb-4 relative border-0 rounded-3xl">
-
         <img className="object-cover border-0 rounded-3xl" src={project.photo} alt={project.name} />
 
         <div className="p-8 absolute inset-0 flex flex-col items-start justify-between bg-black bg-opacity-40 text-white text-center border-0 rounded-3xl">
@@ -40,7 +39,6 @@ export default function ProjectCard({ project }) {
           </div>
 
         </div>
-
       </div>
     </>
   )
