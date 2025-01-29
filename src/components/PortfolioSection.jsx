@@ -25,21 +25,21 @@ export default observer(function PortfolioSection({ title }) {
 
     return (
         <div className="bg-gradient-darkbrown-olivegreen w-full flex flex-col items-center justify-start">
-            <div className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-around">
+            <div className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-evenly">
 
                 <Menu animSwitch={false} />
 
-                <div className='mb-48 md:mb-16'>
+                <div className='mb-16 flex flex-col items-center justify-center gap-y-2'>
                     <h1 className='text-5xl md:text-8xl text-center'>
                         {title}
                     </h1>
 
-                    <p className='text-2xl text-center'>
+                    <p className='text-lg md:text-2xl text-center w-11/12 md:w-8/12'>
                         {description}
                     </p>
                 </div>
             </div>
-            <div className='w-halfscreen mb-24 -mt-24 md:-mt-16 columns-1 md:columns-2 xl:columns-3'>
+            <div className='w-halfscreen mb-16 -mt-16 columns-1 sm:columns-2 xl:columns-3'>
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}
