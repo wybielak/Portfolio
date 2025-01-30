@@ -1,4 +1,4 @@
-import { FaGithub, FaInstagram, FaReact, FaTiktok, FaUnity, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaJs, FaReact, FaTiktok, FaUnity, FaYoutube } from "react-icons/fa";
 import { SiGodotengine } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
 
@@ -31,6 +31,7 @@ export default function ProjectCard({ project }) {
               {project.category == "cpp" && <TbBrandCpp />}
               {project.category == "godot" && <SiGodotengine />}
               {project.category == "unity" && <FaUnity />}
+              {project.category == "js" && <FaJs />}
             </div>
 
             <h1 className="text-4xl font-bold text-left">{project.name}</h1>
