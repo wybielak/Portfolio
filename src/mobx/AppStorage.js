@@ -7,15 +7,15 @@ export default class AppStorage {
     }
 
     devProjects = [
-        { "name": "Misty Horizon", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "unity", "photo": "/images/dev/mistyhorizon1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "At Last Apocalypse", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "godot", "photo": "/images/dev/atlastapocalypse1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Califit", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "react", "photo": "/images/dev/califit1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Kansha", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "react", "photo": "/images/dev/kansha1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Flashback", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "react", "photo": "/images/dev/flashback1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Two Daves", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "godot", "photo": "/images/dev/twodaves1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Weather App", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "js", "photo": "/images/dev/weather1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Bomberman", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "cpp", "photo": "/images/dev/bomberman1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "MyKingdom", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "cpp", "photo": "/images/dev/mykingdom1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Misty Horizon", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "unity", "photo": "/images/dev/mistyhorizon1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "At Last Apocalypse", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "godot", "photo": "/images/dev/atlastapocalypse1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Califit", "description": "Lorm ipsum lorem ipusm", "date": "X 2024", "category": "react", "photo": "/images/dev/califit1.jpg", "github": "https://github.com/wybielak/CaliFit", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Kansha", "description": "Lorm ipsum lorem ipusm", "date": "VI 2024", "category": "react", "photo": "/images/dev/kansha1.jpg", "github": "https://github.com/wybielak/Kansha", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Flashback", "description": "Lorm ipsum lorem ipusm", "date": "III 2024", "category": "react", "photo": "/images/dev/flashback1.jpg", "github": "https://github.com/wybielak/Flashback", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Two Daves", "description": "Lorm ipsum lorem ipusm", "date": "VI 2024", "category": "godot", "photo": "/images/dev/twodaves1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Weather App", "description": "Lorm ipsum lorem ipusm", "date": "XII 2023", "category": "js", "photo": "/images/dev/weather1.jpg", "github": "https://github.com/wybielak/WeatherApp", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Bomberman", "description": "Lorm ipsum lorem ipusm", "date": "II 2022", "category": "cpp", "photo": "/images/dev/bomberman1.jpg", "github": "https://github.com/wybielak/Bomberman", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "MyKingdom", "description": "Lorm ipsum lorem ipusm", "date": "VI 2022", "category": "cpp", "photo": "/images/dev/mykingdom1.jpg", "github": "https://github.com/wybielak/MyKingdom", "youtube": "", "tiktok": "", "instagram": "" },
     ]
 
     devDesc = "Computer science is not only my education and career path, but also one of my interests. Initially, I focused on creating mobile applications, but recently I started working more on game dev."
@@ -51,5 +51,4 @@ export default class AppStorage {
     ]
 
     pizzaDesc = "Making pizza is the most relaxing thing for my. Since I started, I can't stop, especially apparently my pizza is very good."
-
 }
