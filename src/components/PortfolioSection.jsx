@@ -7,8 +7,8 @@ import ProjectCard from './ProjectCard'
 export default observer(function PortfolioSection({ title }) {
 
     const { appStorage } = useStore()
-    const [projects, setProjects] = useState([])
-    const [description, setDescription] = useState("")
+    const [ projects, setProjects ] = useState([])
+    const [ description, setDescription ] = useState("")
 
     useEffect(() => {
         if (title == "Dev") {
@@ -39,7 +39,7 @@ export default observer(function PortfolioSection({ title }) {
                     </p>
                 </div>
             </div>
-            <div className='w-halfscreen mb-16 -mt-16 columns-1 sm:columns-2 xl:columns-3'>
+            <div className='w-halfscreen mb-16 -mt-16 columns-1 sm:columns-2 lg:columns-3 xl:columns-4'>
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}

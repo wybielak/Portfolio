@@ -7,15 +7,15 @@ export default class AppStorage {
     }
 
     devProjects = [
-        { "name": "Misty Horizon", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "unity", "photo": "/images/dev/mistyhorizon1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "At Last Apocalypse", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "godot", "photo": "/images/dev/atlastapocalypse1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Califit", "description": "Lorm ipsum lorem ipusm", "date": "X 2024", "category": "react", "photo": "/images/dev/califit1.jpg", "github": "https://github.com/wybielak/CaliFit", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Kansha", "description": "Lorm ipsum lorem ipusm", "date": "VI 2024", "category": "react", "photo": "/images/dev/kansha1.jpg", "github": "https://github.com/wybielak/Kansha", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Flashback", "description": "Lorm ipsum lorem ipusm", "date": "III 2024", "category": "react", "photo": "/images/dev/flashback1.jpg", "github": "https://github.com/wybielak/Flashback", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Two Daves", "description": "Lorm ipsum lorem ipusm", "date": "VI 2024", "category": "godot", "photo": "/images/dev/twodaves1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Weather App", "description": "Lorm ipsum lorem ipusm", "date": "XII 2023", "category": "js", "photo": "/images/dev/weather1.jpg", "github": "https://github.com/wybielak/WeatherApp", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Bomberman", "description": "Lorm ipsum lorem ipusm", "date": "II 2022", "category": "cpp", "photo": "/images/dev/bomberman1.jpg", "github": "https://github.com/wybielak/Bomberman", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "MyKingdom", "description": "Lorm ipsum lorem ipusm", "date": "VI 2022", "category": "cpp", "photo": "/images/dev/mykingdom1.jpg", "github": "https://github.com/wybielak/MyKingdom", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Misty Horizon", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "unity", "photo": "/images/dev/mistyhorizon1.jpg", "github": "", "youtube": "https://youtube.com/shorts/kasVuHcKGoc?feature=share", "tiktok": "", "instagram": "" },
+        { "name": "At Last Apocalypse", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "godot", "photo": "/images/dev/atlastapocalypse1.jpg", "github": "", "youtube": "https://youtu.be/iTRFJ-8KZ_I", "tiktok": "", "instagram": "" },
+        { "name": "Califit", "description": "Lorm ipsum lorem ipusm", "date": "X 2024", "category": "react", "photo": "/images/dev/califit1.jpg", "github": "https://github.com/wybielak/CaliFit", "youtube": "https://youtube.com/shorts/0nrO-G-5kDQ?feature=share", "tiktok": "", "instagram": "" },
+        { "name": "Kansha", "description": "Lorm ipsum lorem ipusm", "date": "VI 2024", "category": "react", "photo": "/images/dev/kansha1.jpg", "github": "https://github.com/wybielak/Kansha", "youtube": "https://youtube.com/shorts/Xwb9ZFUucaI?feature=share", "tiktok": "", "instagram": "" },
+        { "name": "Flashback", "description": "Lorm ipsum lorem ipusm", "date": "III 2024", "category": "react", "photo": "/images/dev/flashback1.jpg", "github": "https://github.com/wybielak/Flashback", "youtube": "https://youtube.com/shorts/fdDC-oPJNB4?feature=share", "tiktok": "", "instagram": "" },
+        { "name": "Two Daves", "description": "Lorm ipsum lorem ipusm", "date": "VI 2024", "category": "godot", "photo": "/images/dev/twodaves1.jpg", "github": "", "youtube": "https://youtu.be/uIMnzqB_26A", "tiktok": "", "instagram": "" },
+        { "name": "Weather App", "description": "Lorm ipsum lorem ipusm", "date": "XII 2023", "category": "js", "photo": "/images/dev/weather1.jpg", "github": "https://github.com/wybielak/WeatherApp", "youtube": "https://youtube.com/shorts/RSgxLYeSJFU?feature=share", "tiktok": "", "instagram": "" },
+        { "name": "Bomberman", "description": "Lorm ipsum lorem ipusm", "date": "II 2022", "category": "cpp", "photo": "/images/dev/bomberman1.jpg", "github": "https://github.com/wybielak/Bomberman", "youtube": "https://youtu.be/Q2gwOLikO_4", "tiktok": "", "instagram": "" },
+        { "name": "MyKingdom", "description": "Lorm ipsum lorem ipusm", "date": "VI 2022", "category": "cpp", "photo": "/images/dev/mykingdom1.jpg", "github": "https://github.com/wybielak/MyKingdom", "youtube": "https://youtu.be/x7hJ-xeFIZI", "tiktok": "", "instagram": "" },
     ]
 
     devDesc = "Computer science is not only my education and career path, but also one of my interests. Initially, I focused on creating mobile applications, but recently I started working more on game dev."
@@ -41,13 +41,13 @@ export default class AppStorage {
     workshopDesc = "My main hobby is craftsmanship, including woodworking, metalworking, and knife-making. It provides an excellent escape from the field I work in professionally and studied for, which is IT."
 
     pizzaProject = [
-        { "name": "Pizza 7", "description": "Lorm ipsum lorem ipusm", "date": "I 2025", "category": "", "photo": "/images/pizza/pizza7.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Pizza 6", "description": "Lorm ipsum lorem ipusm", "date": "I 2025", "category": "", "photo": "/images/pizza/pizza6.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Pizza 5", "description": "Lorm ipsum lorem ipusm", "date": "I 2025", "category": "", "photo": "/images/pizza/pizza5.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Pizza 4", "description": "Lorm ipsum lorem ipusm", "date": "XII 2024", "category": "", "photo": "/images/pizza/pizza4.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Pizza 3", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza3.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Pizza 2", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza2.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
-        { "name": "Pizza 1", "description": "Lorm ipsum lorem ipusm", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 7", "description": "Homemade pizza with basilian pesto, burrata and creme aceto di balsamica", "date": "I 2025", "category": "", "photo": "/images/pizza/pizza7.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 6", "description": "Homemade pizza with cherry tomatoes, arugula, parma ham and grana padano", "date": "I 2025", "category": "", "photo": "/images/pizza/pizza6.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 5", "description": "Homemade pizza with mozarella and burrata", "date": "I 2025", "category": "", "photo": "/images/pizza/pizza5.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 4", "description": "My first pizza from dedicated pizza oven", "date": "XII 2024", "category": "", "photo": "/images/pizza/pizza4.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 3", "description": "Homemade pizza with cherry tomatoes, arugula, parma ham and grana padano", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza3.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 2", "description": "My homemade pizzas", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza2.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
+        { "name": "Pizza 1", "description": "My first pizza from kitchen oven", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
     ]
 
     pizzaDesc = "Making pizza is the most relaxing thing for my. Since I started, I can't stop, especially apparently my pizza is very good."
