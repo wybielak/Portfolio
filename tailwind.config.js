@@ -7,6 +7,7 @@ export default {
     extend: {
       backgroundImage: {
         'gradient-darkbrown-olivegreen': 'linear-gradient(60deg, #737c47, #5a5442)',
+        'gradient-olivegreen-darkbrown': 'linear-gradient(60deg, #5a5442, #737c47)',
       },
       backgroundColor: {
         darkbrown: "#5a5442",
@@ -25,9 +26,12 @@ export default {
         'halfscreen': '90vw'
       },
       height: {
-        'smaller-screen-pc': '96vh',
+        'smaller-screen-pc': '98vh',
         'smaller-screen': '98vh',
-        'halfscreen': '70vh'
+        'halfscreen': '70vh',
+        '500px': '500px',
+        '230px': '230px',
+        
       }
     },
   },
