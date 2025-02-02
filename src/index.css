@@ -12,6 +12,11 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 .bg-david-front {
     background-image: url('/images/bg1.jpg');
     background-attachment: fixed;

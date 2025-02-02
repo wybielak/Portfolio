@@ -50,5 +50,5 @@ export default class AppStorage {
         { "name": "Pizza 1", "description": "My first pizza from kitchen oven", "date": "IX 2024", "category": "", "photo": "/images/pizza/pizza1.jpg", "github": "", "youtube": "", "tiktok": "", "instagram": "" },
     ]
 
-    pizzaDesc = "Making pizza is the most relaxing thing for my. Since I started, I can't stop, especially apparently my pizza is very good."
+    pizzaDesc = "Making pizza is the most relaxing thing for my. Since I started, I can't stop, especially, apparently my pizza is very good."
 }
