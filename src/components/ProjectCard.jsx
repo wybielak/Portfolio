@@ -51,7 +51,7 @@ export default function ProjectCard({ project }) {
               <h1 className="text-xl md:text-2xl font-bold text-left">{project.name}</h1>
 
               <div className={`${imgDimensions.width > imgDimensions.height ? "hidden sm:flex" : ""}`}>
-                <p className="text-md text-left">{project.description}</p>
+                <p className="text-md lg:text-lg text-left">{project.description}</p>
               </div>
 
             </div>
