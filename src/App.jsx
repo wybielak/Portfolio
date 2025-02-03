@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./components/Home"
 import PortfolioSection from "./components/PortfolioSection"
+import ResponsiveMenu from "./components/ResponsiveMenu"
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/pizza',
     element: <PortfolioSection title="Pizza" />
+  },
+  {
+    path: '/menu',
+    element: <ResponsiveMenu />
   }
 ])
 

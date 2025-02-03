@@ -1,13 +1,13 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
-export default function Menu({ animSwitch }) {
+export default function Menu({ animSwitch, responsive = false }) {
     const url = useLocation()
     const currentPath = location.pathname
 
     return (
         <>
-            <div className={`w-full flex flex-col md:flex-row flex-nowrap items-center justify-around ${animSwitch ? 'fade-in-slower-anim' : 'fade-in-slower-anim2'}`}>
+            <div className={`w-full ${responsive ? 'hidden md:flex' : 'flex'} flex-col md:flex-row flex-nowrap items-center justify-around ${animSwitch ? 'fade-in-slower-anim' : 'fade-in-slower-anim2'}`}>
                 {currentPath !== "/" && (
                     <span>
                         <button type="button" className="text-3xl tracking-widest transition hover:opacity-70 hover:scale-110">

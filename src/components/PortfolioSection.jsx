@@ -3,12 +3,13 @@ import Menu from './Menu'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../mobx/Store'
 import ProjectCard from './ProjectCard'
+import { TbMenu3, TbMenu4 } from 'react-icons/tb'
 
 export default observer(function PortfolioSection({ title }) {
 
     const { appStorage } = useStore()
-    const [ projects, setProjects ] = useState([])
-    const [ description, setDescription ] = useState("")
+    const [projects, setProjects] = useState([])
+    const [description, setDescription] = useState("")
 
     useEffect(() => {
         if (title == "Dev") {
@@ -25,12 +26,18 @@ export default observer(function PortfolioSection({ title }) {
 
     return (
         <div className="bg-gradient-darkbrown-olivegreen w-full flex flex-col items-center justify-start">
-            <div className="my-2 p-4 bg-david-back bg-opacity-darker w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-start md:justify-evenly">
+            <div className="my-2 p-4 bg-david-back bg-opacity-darker w-smaller-screen md:w-smaller-screen-pc h-halfscreen border-0 rounded-3xl flex flex-col items-center justify-evenly">
 
-                <Menu animSwitch={false} />
+                <Menu animSwitch={false} responsive={true} />
 
-                <div className='mt-8 mb-16 flex flex-col items-center justify-center gap-y-2'>
-                    <h1 className='text-5xl md:text-8xl text-center font-bo'>
+                <div className='text-6xl w-full flex md:hidden items-center justify-center'>
+                    <a href="/menu">
+                    <TbMenu4 />
+                    </a>
+                </div>
+
+                <div className='md:mt-8 mb-16 flex flex-col items-center justify-center gap-y-2'>
+                    <h1 className='text-6xl md:text-8xl text-center'>
                         {title}
                     </h1>
 

@@ -18,9 +18,9 @@ export default function Home() {
                         </a>
                     </span>
 
-                    <div className="m-2 p-4 w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">
-                        <h1 className="text-2xl md:text-9xl w-full text-center flex flex-row md:flex-col justify-between items-start md:items-center">
-                            <p className="flex flex-wrap font-bold md:font-normal flex-col md:flex-row">
+                    <div className="m-4 p-4 w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">
+                        <h1 className="text-2xl md:text-8xl lg:text-9xl w-full text-center flex flex-row md:flex-col justify-between items-start md:items-center">
+                            <p className="flex flex-wrap font-bold md:font-normal flex-col md:hidden">
                                 <span>D</span>
                                 <span>a</span>
                                 <span>w</span>
@@ -37,6 +37,9 @@ export default function Home() {
                                 <span>s</span>
                                 <span>k</span>
                                 <span>i</span>
+                            </p>
+                            <p className="hidden md:flex">
+                                Dawid Nowakowski
                             </p>
                             <p className="md:m-2 text-2xl md:text-6xl fade-in-anim tracking-widest flex flex-col md:flex-row">
                                 <span>p</span>
@@ -55,13 +58,13 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div id="aboutme" className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc lg:h-smaller-screen-pc border-0 rounded-3xl flex flex-col items-center justify-center">
+                <div id="aboutme" className="my-2 bg-david-back bg-opacity w-smaller-screen md:w-smaller-screen-pc md:h-smaller-screen-pc border-0 rounded-3xl flex flex-col items-center justify-center">
 
                     <div className="lg:h-smaller-screen-pc flex flex-col items-center justify-center">
 
                         <h1 className="text-4xl md:text-6xl w-full text-center m-5 mt-10 ">About me</h1>
 
-                        <div className="flex flex-col lg:flex-row flex-nowrap items-center justify-center w-11/12 md:w-3/4 xl:w-1/2">
+                        <div className="flex flex-col md:flex-row flex-nowrap items-center justify-center w-11/12 lg:w-3/4 xl:w-1/2">
 
                             <div className="p-5 m-5 bg-gradient-darkbrown-olivegreen opacity-90 border-0 rounded-3xl flex-1 h-500px flex flex-col items-center justify-evenly">
                                 <h2 className="text-4xl font-bold text-center my-2">Hi, I&apos;m Dawid!</h2>
