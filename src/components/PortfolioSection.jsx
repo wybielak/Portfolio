@@ -39,7 +39,7 @@ export default observer(function PortfolioSection({ title }) {
                     </p>
                 </div>
             </div>
-            <div className='w-halfscreen px-4 mb-16 -mt-20 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
+            <div className='w-halfscreen px-4 mb-16 -mt-24 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}
