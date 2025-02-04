@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from '../mobx/Store'
 import ProjectCard from './ProjectCard'
 import { TbMenu3, TbMenu4 } from 'react-icons/tb'
+import { NavLink } from 'react-router-dom'
 
 export default observer(function PortfolioSection({ title }) {
 
@@ -31,9 +32,9 @@ export default observer(function PortfolioSection({ title }) {
                 <Menu animSwitch={false} responsive={true} />
 
                 <div className='text-6xl w-full flex md:hidden items-center justify-center'>
-                    <a href="/menu">
-                    <TbMenu4 />
-                    </a>
+                    <NavLink to="/menu">
+                        <TbMenu4 />
+                    </NavLink>
                 </div>
 
                 <div className='md:mt-8 mb-16 flex flex-col items-center justify-center gap-y-2'>

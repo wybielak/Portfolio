@@ -12,11 +12,16 @@ export default function Home() {
             <div className="bg-gradient-darkbrown-olivegreen w-full flex flex-col items-center justify-center">
                 <div className="my-2 bg-david-front bg-opacity w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-smaller-screen-pc border-0 rounded-3xl flex flex-col items-center justify-center md:justify-end">
 
-                    <span className="absolute bottom-5 left-5 text-xl">
-                        <a href="#aboutme" className="flex flex-row items-center justify-center gap-x-2">
-                            <FaAnglesDown />
-                            <span className="hidden md:block" >About me</span>
-                        </a>
+                    <span className="absolute bottom-5 left-5 text-xl fade-in-slower-anim">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span>
+                            <a href="#aboutme" className="flex flex-row items-center justify-center gap-x-2">
+                                <FaAnglesDown />
+                                <span className="hidden md:block" >About me</span>
+                            </a>
+                        </span>
                     </span>
 
                     <div className="m-8 p-4 w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">
