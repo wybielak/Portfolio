@@ -24,39 +24,10 @@ export default function Home() {
                         </span>
                     </span>
 
-                    <div className="m-8 p-4 w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-around">
-                        <h1 className="text-2xl md:text-8xl lg:text-9xl w-full text-center flex flex-row md:flex-col justify-between items-start md:items-center">
-                            <p className="flex flex-wrap font-bold md:font-normal flex-col md:hidden">
-                                <span>D</span>
-                                <span>a</span>
-                                <span>w</span>
-                                <span>i</span>
-                                <span>d</span>
-                                <span>&nbsp;</span>
-                                <span>N</span>
-                                <span>o</span>
-                                <span>w</span>
-                                <span>a</span>
-                                <span>k</span>
-                                <span>o</span>
-                                <span>w</span>
-                                <span>s</span>
-                                <span>k</span>
-                                <span>i</span>
-                            </p>
-                            <p className="hidden md:flex">
+                    <div className="md:m-8 p-4 w-smaller-screen md:w-smaller-screen-pc h-smaller-screen md:h-halfscreen flex flex-col items-center justify-between md:justify-around">
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl w-full text-center flex flex-col justify-between items-center">
+                            <p className="flex">
                                 Dawid Nowakowski
-                            </p>
-                            <p className="md:m-2 text-2xl md:text-6xl fade-in-anim tracking-widest flex flex-col md:flex-row">
-                                <span>p</span>
-                                <span>o</span>
-                                <span>r</span>
-                                <span>t</span>
-                                <span>f</span>
-                                <span>o</span>
-                                <span>l</span>
-                                <span>i</span>
-                                <span>o</span>
                             </p>
                         </h1>
 

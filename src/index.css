@@ -18,7 +18,7 @@ html {
 
 
 .bg-david-front {
-    background-image: url('/images/bg1.jpg');
+    background-image: url('/images/bg4.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@ html {
 }
 
 .bg-david-back {
-    background-image: url('/images/bg2.jpg');
+    background-image: url('/images/bg3.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
