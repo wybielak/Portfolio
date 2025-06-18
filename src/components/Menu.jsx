@@ -18,7 +18,7 @@ export default function Menu({ animSwitch, responsive = false }) {
                 {currentPath !== "/dev" && (
                     <span>
                         <button type="button" className="text-3xl tracking-widest mt-6 md:m-0 transition hover:opacity-70 hover:scale-110">
-                            <NavLink to="/dev">DEV</NavLink>
+                            <NavLink to="/dev">IT</NavLink>
                         </button>
                     </span>
                 )}
