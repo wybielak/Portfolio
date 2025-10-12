@@ -1,43 +1,46 @@
-import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-export default function Menu({ animSwitch, responsive = false }) {
-    const url = useLocation()
-    const currentPath = location.pathname
+export default function Menu() {
+
+    const MENU = ["HOME", "ABOUT", "PROJECTS", "CONTACT"]
+
+    const [menuActive, setMenuActive] = useState(false)
+
+    const [scrolling, setScrolling] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolling(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const toggleMenu = () => {
+        setMenuActive(prevState => !prevState)
+        console.log(menuActive)
+    }
 
     return (
         <>
-            <div className={`w-full ${responsive ? 'hidden md:flex' : 'flex'} flex-col md:flex-row flex-nowrap items-center justify-around ${animSwitch ? 'fade-in-slower-anim' : 'fade-in-slower-anim2'}`}>
-                {currentPath !== "/" && (
-                    <span>
-                        <button type="button" className="text-3xl tracking-widest transition hover:opacity-70 hover:scale-110">
-                            <NavLink to="/">HOME</NavLink>
-                        </button>
-                    </span>
-                )}
-                {currentPath !== "/dev" && (
-                    <span>
-                        <button type="button" className="text-3xl tracking-widest mt-6 md:m-0 transition hover:opacity-70 hover:scale-110">
-                            <NavLink to="/dev">IT</NavLink>
-                        </button>
-                    </span>
-                )}
-                {currentPath !== "/workshop" && (
-                    <span>
-                        <button type="button" className="text-3xl tracking-widest mt-6 md:m-0 transition hover:opacity-70 hover:scale-110">
-                            <NavLink to="/workshop">WORKSHOP</NavLink>
-                        </button>
-                    </span>
-                )}
-                {currentPath !== "/pizza" && (
-                    <span>
-                        <button type="button" className="text-3xl tracking-widest mt-6 md:m-0 transition hover:opacity-70 hover:scale-110">
-                            <NavLink to="/pizza">PIZZA</NavLink>
-                        </button>
-                    </span>
-                )}
-            </div>
+            <div className={`fixed top-0 left-0 w-full z-30 py-6 px-8 flex items-center justify-between transition-colors duration-300 ${scrolling ? "bg-black/30" : "bg-black/0"}`}>
 
+                <h1 className="text-3xl fade-in-anim z-20"><p className="transition">DNw</p></h1>
+
+                <button onClick={toggleMenu} className="relative w-8 h-6 flex flex-col justify-between items-center md:hidden fade-in-anim z-20">
+                    <span className={`h-[3px] w-full bg-softBeige rounded-sm transition-all ease-in-out ${menuActive ? "rotate-45 translate-y-[10px]" : ""}`}></span>
+                    <span className={`h-[3px] w-10/12 bg-softBeige rounded-sm transition-all ease-in-out ${menuActive ? "scale-x-0" : "scale-x-100"}`}></span>
+                    <span className={`h-[3px] w-full bg-softBeige rounded-sm transition-all ease-in-out ${menuActive ? "-rotate-45 -translate-y-[10px]" : ""}`}></span>
+                </button>
+
+
+                <div className={`fixed top-0 left-0 h-full w-full bg-charcoal bg-opacity-40 backdrop-blur-md md:bg-transparent md:static md:h-auto md:w-auto flex flex-col md:flex-row justify-center items-center gap-16 transition-transform duration-500 ease-in-out fade-in-anim md:translate-x-0 ${menuActive ? "translate-x-0" : "-translate-x-full"}`}>
+                    {MENU.map((label) => (
+                        <span key={label} ><button type="button" onClick={toggleMenu} className="text-xl tracking-widest transition hover:opacity-70 hover:scale-110"><a href={`#${label.toLowerCase()}`}>{label}</a></button></span>
+                    ))}
+                </div>
+
+            </div>
         </>
     )
 }
