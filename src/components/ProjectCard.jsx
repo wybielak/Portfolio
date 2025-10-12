@@ -23,7 +23,7 @@ export default function ProjectCard({ project }) {
 
           <img className={`object-cover border-0 ${imgDimensions.width > imgDimensions.height ? "rounded-t-3xl sm:rounded-3xl" : "rounded-3xl"} w-full h-full`} src={project.photo} alt={project.name} onLoad={handleImageLoad} />
 
-          <div className={`p-4 absolute inset-0 flex flex-col items-start justify-between bg-black bg-opacity-40 text-white text-center border-0 ${imgDimensions.width > imgDimensions.height ? "rounded-t-3xl sm:rounded-3xl" : "rounded-3xl"}`}>
+          <div className={`p-4 absolute inset-0 flex flex-col items-start justify-between bg-charcoal bg-opacity-60 text-center border-0 ${imgDimensions.width > imgDimensions.height ? "rounded-t-3xl sm:rounded-3xl" : "rounded-3xl"}`}>
 
             <div className="w-full flex flex-row items-center justify-between">
 

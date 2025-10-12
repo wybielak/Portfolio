@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaJs, FaPython, FaReact, FaUnity } from "react-icons/fa";
+import { FaJs, FaPython, FaReact, FaUnity, FaWordpressSimple } from "react-icons/fa";
 import Menu from "./Menu";
 import { TbBrandCpp, TbBrandCSharp, TbMenu4 } from "react-icons/tb";
 import { SiGodotengine } from "react-icons/si";
@@ -46,10 +46,10 @@ export default observer(function Home() {
         return () => clearInterval(interval);
     }, []);
 
-    // useEffect(() => {
-    //     setProjects(appStorage.devProjects)
-    //     setDescription(appStorage.devDesc)
-    // }, [])
+    useEffect(() => {
+        setProjects(appStorage.devProjects)
+        setDescription(appStorage.devDesc)
+    }, [])
 
     return (
         <>
@@ -58,7 +58,7 @@ export default observer(function Home() {
                 <Menu />
 
                 <div id="home" className="bg-darkBrown w-screen h-screen flex flex-col items-center justify-center">
-                    <p className="m-4 text-5xl md:text-6xl font-bold">
+                    <p className="m-8 text-5xl md:text-6xl font-bold">
                         {letters.map((l) => (
                             <span key={l.id} className={`${l.visible ? l.color : "opacity-0"} transition-opacity duration-300`} >
                                 {l.char}
@@ -67,9 +67,9 @@ export default observer(function Home() {
                     </p>
                 </div>
 
-                <div id="about" className="bg-softBeige w-screen flex flex-col md:flex-row items-center justify-center">
-                    
-                    <div className='p-4 h-screen flex flex-col items-center justify-center gap-y-8'>
+                <div id="about" className="bg-softBeige w-screen flex flex-col lg:flex-row items-center justify-center">
+
+                    <div className='p-8 h-screen flex flex-col items-center justify-center gap-y-8'>
                         <p className="text-5xl md:text-6xl font-bold text-forestBrown">
                             Nazywam się Dawid Nowakowski.
                         </p>
@@ -83,72 +83,55 @@ export default observer(function Home() {
                         </p>
                     </div>
 
-                    <div className="md:h-screen md:w-screen">
-                        <img
-                            src="/images/bg6.jpg"
-                            alt=""
-                            className="md:h-screen w-auto object-cover"
-                        />
+                    <img
+                        src="/images/bg6.jpg"
+                        alt="Photo of Dawid"
+                        className="lg:h-screen w-auto object-cover"
+                    />
+
+                </div>
+
+                <div id="motto" className="bg-silverBlue w-screen h-screen flex flex-col lg:flex-row items-center justify-center">
+
+                    <div className='p-8 h-screen flex flex-col items-center justify-center gap-y-8'>
+                        <p className="text-3xl md:text-4xl text-forestGreen">
+                            W życiu kieruję się zasadą
+                        </p>
+
+                        <p className="text-4xl md:text-5xl font-bold text-forestGreen">
+                            &quot;Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.&quot;
+                        </p>
+
+                        <p className="text-2xl self-end md:text-3xl text-forestGreen">
+                            Dawid Nowakowski
+                        </p>
                     </div>
 
                 </div>
 
-                {/* <div id="about" className="p-4 w-screen h-screen flex flex-col items-center justify-center">
+                <div id="motto" className="bg-forestGreen p-8 w-screen h-screen flex flex-col items-center justify-evenly">
 
-                    <div className="h-screen flex flex-col items-center justify-center">
+                        <h2 className="text-5xl text-center">Zobacz z jakich technologii korzystam</h2>
+                        <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center">
+                            <FaPython />
+                            <FaJs />
+                            <TbBrandCpp />
+                            <TbBrandCSharp />
+                        </p>
+                        <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center">
+                            
+                            <FaReact />
+                            <FaWordpressSimple />
+                            <SiGodotengine />
+                            <FaUnity />
+                        </p>
 
-                        <div className="flex flex-col md:flex-row flex-nowrap items-center justify-center w-11/12 lg:w-3/4">
+                </div>
 
-                            <div className="p-5 m-5 bg-transparent opacity-90 border-0 rounded-3xl flex-1 flex flex-col items-center justify-evenly">
-                                <h2 className="text-4xl font-bold text-center my-2">Hi, I&apos;m Dawid!</h2>
-                                <p className="text-lg flex flex-col gap-y-3">
-                                    <p>
-                                        I am computer science engineer currently studying marketing and sales, while actively developing my careed in IT.
-                                    </p>
-                                    <p>
-                                        I learn new things quickly and I am creative and efficient in managing my time.
-                                        I am persistent and always bring my projects to completion.
-                                    </p>
-                                    <p>
-                                        In my free time, I enjoy metalworking, woodworking, and making pizza, it is a great way to take a break from the IT world.
-                                    </p>
-                                </p>
-                            </div>
+                <div id="projects" className="bg-softBeige p-8 w-screen  flex flex-col items-center justify-start" >
 
-                            <div className="flex flex-col items-center justify-center flex-1">
-
-                                <div className="p-5 m-5 bg-transparent opacity-90 border-0 rounded-3xl h-230px flex flex-col items-center justify-evenly">
-                                    <h2 className="text-2xl font-bold text-center">My motto</h2>
-                                    <p className="text-lg italic text-center">
-                                        &quot;With the right amount of determination and time, you can achieve anything.&quot; <br /> ~ DNw
-                                    </p>
-                                </div>
-
-                                <div className="p-5 m-5 bg-transparent opacity-90 border-0 rounded-3xl h-230px flex flex-col items-center justify-evenly">
-                                    <h2 className="text-2xl font-bold text-center">My technologies</h2>
-                                    <p className="text-4xl flex flex-wrap gap-3 items-center justify-center">
-                                        <FaReact />
-                                        <FaJs />
-                                        <FaPython />
-                                        <TbBrandCpp />
-                                        <TbBrandCSharp />
-                                        <FaUnity />
-                                        <SiGodotengine />
-                                    </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div> */}
-
-                {/* <div id="projects" className="my-2 w-halfscreen flex flex-col items-center justify-start" >
-
-                    <h1 className="mt-20 text-6xl font-bold">
-                        Projects
+                    <h1 className="mt-20 text-6xl font-bold text-forestGreen">
+                        Sprawdź moje poprzednie projekty
                     </h1>
 
                     <div className='px-4 mt-24 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
@@ -157,7 +140,7 @@ export default observer(function Home() {
                         ))}
                     </div>
 
-                </div> */}
+                </div>
 
             </div >
         </>
