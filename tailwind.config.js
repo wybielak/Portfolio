@@ -26,16 +26,10 @@ export default {
         evil: "#C13232",
       },
       width: {
-        'smaller-screen-pc': '98vw',
-        'smaller-screen': '96vw',
         'halfscreen': '90vw'
       },
       height: {
-        'smaller-screen-pc': '98vh',
-        'smaller-screen': '98vh',
-        'halfscreen': '80vh',
-        '500px': '500px',
-        '230px': '230px',
+        'halfscreen': '70vh',
       }
     },
   },
