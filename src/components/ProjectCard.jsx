@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub, FaInstagram, FaJs, FaReact, FaTiktok, FaUnity, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaJs, FaPython, FaReact, FaTiktok, FaUnity, FaWordpressSimple, FaYoutube } from "react-icons/fa";
 import { SiGodotengine } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
 
@@ -43,9 +43,11 @@ export default function ProjectCard({ project }) {
               <div className="flex flex-row flex-nowrap items-center justify-center text-3xl sm:text-2xl md:text-3xl">
                 {project.category === "react" && <FaReact />}
                 {project.category === "cpp" && <TbBrandCpp />}
+                {project.category === "py" && <FaPython />}
                 {project.category === "godot" && <SiGodotengine />}
                 {project.category === "unity" && <FaUnity />}
                 {project.category === "js" && <FaJs />}
+                {project.category === "wp" && <FaWordpressSimple />}
               </div>
 
               <h1 className="text-xl md:text-2xl font-bold text-left">{project.name}</h1>

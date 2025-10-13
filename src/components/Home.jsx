@@ -3,21 +3,25 @@ import { FaFacebook, FaInstagram, FaJs, FaPython, FaReact, FaUnity, FaWordpressS
 import Menu from "./Menu";
 import { TbBrandCpp, TbBrandCSharp, TbMenu4 } from "react-icons/tb";
 import { SiGodotengine } from "react-icons/si";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useSearchParams } from "react-router-dom";
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../mobx/Store'
 import ProjectCard from './ProjectCard'
 import { motion } from "framer-motion";
+import { button, div } from 'framer-motion/client';
+import ProjectDetails from './ProjectDetails';
 
 
 export default observer(function Home() {
+
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const { appStorage } = useStore()
     const [projects, setProjects] = useState([])
     const [description, setDescription] = useState("")
 
-    const text = "Cześć! Stwórzmy razem twoją stronę lub aplikację internetową";
-    const colors = ["text-mistGray", "text-softBeige", "text-silverBlue", "text-sageGreen"];
+    const text = "Cześć! Stwórzmy razem twoją stronę lub aplikację internetową"
+    const colors = ["text-mistGray", "text-softBeige", "text-silverBlue", "text-sageGreen"]
 
     const [letters, setLetters] = useState(
         text.split("").map((char, idx) => ({
@@ -29,27 +33,26 @@ export default observer(function Home() {
     );
 
     useEffect(() => {
-        let remaining = [...letters.keys()];
+        let remaining = [...letters.keys()]
 
         const interval = setInterval(() => {
-            if (!remaining.length) return clearInterval(interval);
+            if (!remaining.length) return clearInterval(interval)
 
-            const randIndex = Math.floor(Math.random() * remaining.length);
-            const [letterIndex] = remaining.splice(randIndex, 1);
+            const randIndex = Math.floor(Math.random() * remaining.length)
+            const [letterIndex] = remaining.splice(randIndex, 1)
 
             setLetters(prev =>
                 prev.map((l, idx) =>
                     idx === letterIndex ? { ...l, visible: true } : l
                 )
-            );
-        }, 20);
+            )
+        }, 20)
 
         return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
         setProjects(appStorage.devProjects)
-        setDescription(appStorage.devDesc)
     }, [])
 
     return (
@@ -147,7 +150,7 @@ export default observer(function Home() {
 
                 <div id="technologies" className="bg-forestGreen p-8 w-full h-halfscreen flex flex-col items-center justify-evenly">
 
-                    <h2 className="text-5xl text-center text-white">Zobacz z jakich technologii korzystam</h2>
+                    <h2 className="text-5xl text-center">Zobacz z jakich technologii korzystam</h2>
 
                     {/* Pierwszy rząd ikon */}
                     <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center">
@@ -251,9 +254,35 @@ export default observer(function Home() {
                         Sprawdź moje poprzednie projekty
                     </h1>
 
-                    <h2 className="mt-20 text-3xl text-forestGreen">
-                        Sekcja w przygotowaniu!
-                    </h2>
+                    <motion.div
+                        className='mx-4 mt-24 flex flex-col justify-center md:flex-row flex-wrap gap-8'
+                        initial={{ y: 50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        {projects.map((project, index) => (
+                            <div
+                                key={index}
+                                className='w-72 h-96 flex flex-col justify-between bg-forestGreen transition shadow-xl hover:scale-105 hover:cursor-pointer'
+                                onClick={() => setSearchParams({ project: project.id })}
+                            >
+                                <div className="text-5xl self-end m-4">
+                                    {project.category === "react" && <FaReact />}
+                                    {project.category === "cpp" && <TbBrandCpp />}
+                                    {project.category === "py" && <FaPython />}
+                                    {project.category === "godot" && <SiGodotengine />}
+                                    {project.category === "unity" && <FaUnity />}
+                                    {project.category === "js" && <FaJs />}
+                                    {project.category === "wp" && <FaWordpressSimple />}
+                                </div>
+
+                                <h1 className='text-3xl self-start font-bold m-4'>
+                                    {project.short_name}
+                                </h1>
+                            </div>
+                        ))}
+                    </motion.div>
 
                     {/* <div className='px-4 mt-24 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
                         {projects.map((project, index) => (
@@ -301,6 +330,14 @@ export default observer(function Home() {
                 </div>
 
             </div >
+            
+            {searchParams.get("project") && (
+                <ProjectDetails
+                    projectId={searchParams.get("project")}
+                    onClose={() => setSearchParams({})}
+                />
+            )}
         </>
+
     )
 })

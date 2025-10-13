@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 export default function Menu() {
 
     const MENU = [
-        { label: "START", link: "#home" },
-        { label: "O MNIE", link: "#about" },
-        { label: "PROJEKTY", link: "#projects" },
-        { label: "KONTAKT", link: "#contact" },
+        { label: "START", link: "/#home" },
+        { label: "O MNIE", link: "/#about" },
+        { label: "PROJEKTY", link: "/#projects" },
+        { label: "KONTAKT", link: "/#contact" },
     ]
 
     const [menuActive, setMenuActive] = useState(false)
