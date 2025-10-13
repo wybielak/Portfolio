@@ -71,7 +71,7 @@ export default observer(function Home() {
 
                 <div id="about" className="bg-softBeige w-full flex flex-col lg:flex-row items-center justify-center">
 
-                    <div className='p-8 h-screen flex flex-col items-center justify-center gap-y-8'>
+                    <div className='p-8 w-full h-screen flex flex-col items-start justify-center gap-y-8'>
                         <p className="text-5xl md:text-6xl font-bold text-forestBrown">
                             Nazywam się Dawid Nowakowski
                         </p>
@@ -154,7 +154,7 @@ export default observer(function Home() {
                         className="lg:h-screen w-auto object-cover"
                     />
 
-                    <div className='p-8 h-screen flex flex-col items-center justify-center gap-y-8'>
+                    <div className='p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8'>
                         
                         <p className='my-8 flex flex-col gap-y-8'>
                             <h2 className="text-5xl text-center">Napisz do mnie!</h2>
