@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../mobx/Store'
 import ProjectCard from './ProjectCard'
+import { motion } from "framer-motion";
 
 
 export default observer(function Home() {
@@ -70,19 +71,38 @@ export default observer(function Home() {
                 </div>
 
                 <div id="about" className="bg-softBeige w-full flex flex-col lg:flex-row items-center justify-center">
-
                     <div className='p-8 w-full h-screen flex flex-col items-start justify-center gap-y-8'>
-                        <p className="text-5xl md:text-6xl font-bold text-forestBrown">
+
+                        <motion.p
+                            className="text-5xl md:text-6xl font-bold text-forestBrown"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0 }}
+                        >
                             Nazywam się Dawid Nowakowski
-                        </p>
+                        </motion.p>
 
-                        <p className="text-3xl md:text-4xl font-bold text-forestBrown">
+                        <motion.p
+                            className="text-3xl md:text-4xl font-bold text-forestBrown"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                        >
                             Informatyka jest moją pasją, ale również ścieżką kariery
-                        </p>
+                        </motion.p>
 
-                        <p className="text-2xl md:text-3xl text-forestBrown">
+                        <motion.p
+                            className="text-2xl md:text-3xl text-forestBrown"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
                             Dokładam wszelkich starań, aby projekty tworzone dla ciebie zawsze były na najwyższym poziomie!
-                        </p>
+                        </motion.p>
+
                     </div>
 
                     <img
@@ -90,40 +110,137 @@ export default observer(function Home() {
                         alt="Photo of Dawid"
                         className="lg:h-screen w-auto object-cover"
                     />
-
                 </div>
 
-                <div id="motto" className="bg-silverBlue p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8">
 
-                    <p className="text-3xl md:text-4xl text-forestGreen">
+                <div id="motto" className="bg-silverBlue p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8" >
+                    <motion.p
+                        className="text-3xl md:text-4xl text-forestGreen"
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0 }}
+                    >
                         W życiu kieruję się zasadą
-                    </p>
+                    </motion.p>
 
-                    <p className="text-4xl md:text-5xl font-bold text-forestGreen">
+                    <motion.p
+                        className="text-4xl md:text-5xl font-bold text-forestGreen text-center"
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
                         &quot;Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.&quot;
-                    </p>
+                    </motion.p>
 
-                    <p className="text-2xl self-end md:text-3xl text-forestGreen">
+                    <motion.p
+                        className="text-2xl self-end md:text-3xl text-forestGreen"
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
                         Dawid Nowakowski
-                    </p>
-
+                    </motion.p>
                 </div>
 
                 <div id="technologies" className="bg-forestGreen p-8 w-full h-halfscreen flex flex-col items-center justify-evenly">
 
-                    <h2 className="text-5xl text-center">Zobacz z jakich technologii korzystam</h2>
+                    <h2 className="text-5xl text-center text-white">Zobacz z jakich technologii korzystam</h2>
+
+                    {/* Pierwszy rząd ikon */}
                     <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center">
-                        <a href="https://www.python.org" target="_blank"><FaPython /></a>
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"><FaJs /></a>
-                        <a href="https://isocpp.org" target="_blank"><TbBrandCpp /></a>
-                        <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank"><TbBrandCSharp /></a>
+                        <motion.a
+                            href="https://www.python.org"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0 }}
+                        >
+                            <FaPython />
+                        </motion.a>
+
+                        <motion.a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            <FaJs />
+                        </motion.a>
+
+                        <motion.a
+                            href="https://isocpp.org"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                        >
+                            <TbBrandCpp />
+                        </motion.a>
+
+                        <motion.a
+                            href="https://learn.microsoft.com/en-us/dotnet/csharp/"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <TbBrandCSharp />
+                        </motion.a>
                     </p>
 
+                    {/* Drugi rząd ikon */}
                     <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center">
-                        <a href="https://react.dev" target="_blank"><FaReact /></a>
-                        <a href="https://wordpress.org" target="_blank"><FaWordpressSimple /></a>
-                        <a href="https://godotengine.org" target="_blank"><SiGodotengine /></a>
-                        <a href="https://unity.com" target="_blank"><FaUnity /></a>
+                        <motion.a
+                            href="https://react.dev"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0 }}
+                        >
+                            <FaReact />
+                        </motion.a>
+
+                        <motion.a
+                            href="https://wordpress.org"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            <FaWordpressSimple />
+                        </motion.a>
+
+                        <motion.a
+                            href="https://godotengine.org"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                        >
+                            <SiGodotengine />
+                        </motion.a>
+
+                        <motion.a
+                            href="https://unity.com"
+                            target="_blank"
+                            initial={{ y: -50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <FaUnity />
+                        </motion.a>
                     </p>
 
                 </div>
@@ -148,14 +265,18 @@ export default observer(function Home() {
 
                 <div id="contact" className="bg-darkBrown w-full flex flex-col lg:flex-row items-center justify-center">
 
-                    <img
+                    <motion.img
                         src="/images/bg6.jpg"
                         alt="Photo of Dawid"
                         className="lg:h-screen w-auto object-cover"
+                        initial={{ opacity: 0, x: -200 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0 }}
                     />
 
                     <div className='p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8'>
-                        
+
                         <p className='my-8 flex flex-col gap-y-8'>
                             <h2 className="text-5xl text-center">Napisz do mnie!</h2>
                             <h2 className="text-3xl text-center">Razem wyniesiemy twoją stronę na wyższy poziom</h2>
