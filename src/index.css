@@ -16,6 +16,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: #2E2B1F;
+}
+
 .fade-in-anim span {
     opacity: 0;
     animation: fade-in 0.2s forwards;

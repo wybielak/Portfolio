@@ -28,11 +28,11 @@ export default function Menu() {
 
     return (
         <>
-            <div className={`fixed top-0 left-0 w-full z-30 py-6 px-8 flex items-center justify-between md:backdrop-blur-sm transition-colors duration-300 ${scrolling ? "bg-black/30" : "bg-black/0"} ${menuActive ? "backdrop-blur-none" : "backdrop-blur-sm"}`}>
+            <div className={`fixed top-0 left-0 w-full z-30 py-6 px-8 flex items-center justify-between md:backdrop-blur-sm transition-colors duration-300 ${scrolling ? "bg-black/10" : "bg-black/0"} ${menuActive ? "backdrop-blur-none" : "backdrop-blur-sm"}`}>
 
                 <h1 className="text-3xl z-20">
-                    <span>D</span>
-                    <span>N</span>
+                    <span className='text-mossGreen'>D</span>
+                    <span className='text-oliveGreen'>N</span>
                 </h1>
 
                 <button onClick={toggleMenu} className="relative w-8 h-6 flex flex-col justify-between items-center md:hidden fade-in-anim z-20">
