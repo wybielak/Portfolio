@@ -20,6 +20,8 @@ export default observer(function Home() {
     const [projects, setProjects] = useState([])
     const [description, setDescription] = useState("")
 
+    const [showPhone, setShowPhone] = useState(false);
+
     const text = "Cześć! Stwórzmy razem twoją stronę lub aplikację internetową"
     const colors = ["text-mistGray", "text-softBeige", "text-silverBlue", "text-sageGreen"]
 
@@ -70,7 +72,7 @@ export default observer(function Home() {
                         ))}
                     </p>
 
-                    <div className="pointer-events-none absolute -top-20 -right-20 w-[28rem] h-[28rem] rounded-full bg-mossGreen/5 blur-3xl" />
+                    <div className="pointer-events-none absolute -top-20 -right-20 w-[28rem] h-[28rem] rounded-full bg-deepBlue/20 blur-3xl" />
                     <div className="pointer-events-none absolute -bottom-20 -left-20 w-[24rem] h-[24rem] rounded-full bg-sageGreen/10 blur-3xl" />
                 </div>
 
@@ -102,7 +104,7 @@ export default observer(function Home() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            Informatyka jest moją pasją, ale również ścieżką kariery
+                            Informatyka jest moją ścieżką kariery, ale również pasją
                         </motion.p>
 
                         <motion.p
@@ -215,42 +217,6 @@ export default observer(function Home() {
                     <div className="pointer-events-none absolute -bottom-20 -right-20 w-[24rem] h-[24rem] rounded-full bg-sageGreen/10 blur-3xl" />
                 </div>
 
-                <div id="motto" className="bg-silverBlue p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8 relative overflow-hidden" >
-                    <motion.p
-                        className="text-3xl md:text-4xl text-forestGreen"
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0 }}
-                    >
-                        W życiu kieruję się zasadą
-                    </motion.p>
-
-                    <motion.p
-                        className="text-4xl md:text-5xl font-bold text-forestGreen text-center"
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                        &quot;Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.&quot;
-                    </motion.p>
-
-                    <motion.p
-                        className="text-2xl self-end md:text-3xl text-forestGreen"
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        Dawid Nowakowski
-                    </motion.p>
-
-                    <div className="pointer-events-none absolute -top-28 -right-20 w-[24rem] h-[24rem] rounded-full bg-forestGreen/10 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-24 -left-20 w-[20rem] h-[20rem] rounded-full bg-charcoal/15 blur-3xl" />
-
-                </div>
-
                 <div id="projects" className="bg-softBeige p-8 w-full  flex flex-col items-center justify-start relative overflow-hidden" >
 
                     <motion.h1
@@ -308,11 +274,10 @@ export default observer(function Home() {
 
                 </div>
 
-                <div id="technologies" className="bg-forestGreen p-8 w-full h-halfscreen flex flex-col items-center justify-evenly relative overflow-hidden">
+                {/* <div id="technologies" className="bg-forestGreen p-8 w-full h-halfscreen flex flex-col items-center justify-evenly relative overflow-hidden">
 
                     <h2 className="text-5xl text-center">Zobacz z jakich technologii korzystam</h2>
 
-                    {/* Pierwszy rząd ikon */}
                     <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center !text-deepBlue">
                         <motion.a
                             href="https://www.python.org"
@@ -408,6 +373,42 @@ export default observer(function Home() {
                     <div className="pointer-events-none absolute -top-16 -left-20 w-[22rem] h-[22rem] rounded-full bg-silverBlue/10 blur-3xl" />
                     <div className="pointer-events-none absolute -bottom-16 -right-20 w-[20rem] h-[20rem] rounded-full bg-deepBlue/15 blur-3xl" />
 
+                </div> */}
+
+                <div id="motto" className="bg-silverBlue p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8 relative overflow-hidden" >
+                    <motion.p
+                        className="text-3xl md:text-4xl text-forestGreen"
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0 }}
+                    >
+                        W życiu kieruję się zasadą
+                    </motion.p>
+
+                    <motion.p
+                        className="text-4xl md:text-5xl font-bold text-forestGreen text-center"
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                        &quot;Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.&quot;
+                    </motion.p>
+
+                    <motion.p
+                        className="text-2xl self-end md:text-3xl text-forestGreen"
+                        initial={{ x: -200, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        Dawid Nowakowski
+                    </motion.p>
+
+                    <div className="pointer-events-none absolute -top-28 -left-20 w-[24rem] h-[24rem] rounded-full bg-forestGreen/10 blur-3xl" />
+                    <div className="pointer-events-none absolute -bottom-24 -right-20 w-[20rem] h-[20rem] rounded-full bg-charcoal/15 blur-3xl" />
+
                 </div>
 
                 <div
@@ -427,7 +428,7 @@ export default observer(function Home() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <img
-                            src="/images/bg6.jpg"
+                            src="/images/bg7.jpg"
                             alt="Dawid Nowakowski"
                             className="w-full max-w-xl rounded-3xl shadow-2xl object-cover object-center border-4 border-forestBrown/10"
                         />
@@ -448,12 +449,21 @@ export default observer(function Home() {
                                 >
                                     dawidnowakowski87@gmail.com
                                 </a>
-                                <a
-                                    href="tel:+48696776531"
-                                    className="opacity-70 transition hover:opacity-100"
-                                >
-                                    +48 696 776 531
-                                </a>
+                                {showPhone ? (
+                                    <a
+                                        href="tel:+48696776531"
+                                        className="opacity-70 transition hover:opacity-100"
+                                    >
+                                        +48 696 776 531
+                                    </a>
+                                ) : (
+                                    <button
+                                        onClick={() => setShowPhone(true)}
+                                        className="opacity-70 transition hover:opacity-100"
+                                    >
+                                        +48 ••• pokaż numer
+                                    </button>
+                                )}
                             </p>
 
                             <p className="my-8 flex flex-row text-6xl gap-x-16">

@@ -4,6 +4,7 @@ export default function Menu() {
 
     const MENU = [
         { label: "START", link: "/#home" },
+        { label: "WSPÓŁPRACA", link: "/#colab" },
         { label: "O MNIE", link: "/#about" },
         { label: "PROJEKTY", link: "/#projects" },
         { label: "KONTAKT", link: "/#contact" },
