@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     FaGithub, FaGlobe, FaInstagram, FaTiktok, FaYoutube,
-    FaReact, FaPython, FaUnity, FaJs, FaWordpressSimple
+    FaReact, FaPython, FaUnity, FaJs, FaWordpressSimple,
+    FaShoppingBasket
 } from "react-icons/fa";
 import { SiGodotengine } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
@@ -37,6 +38,7 @@ export default function ProjectDetails({ projectId, onClose }) {
             case "unity": return <FaUnity />;
             case "js": return <FaJs />;
             case "wp": return <FaWordpressSimple />;
+            case "shop": return <FaShoppingBasket />;
             default: return null;
         }
     };
@@ -57,7 +59,7 @@ export default function ProjectDetails({ projectId, onClose }) {
                 onClick={(e) => e.stopPropagation()}
             >
                 
-                <div className="absolute -left-52 -bottom-52 inset-0 flex items-end justify-start text-[20rem] md:text-[55rem] text-white opacity-5 z-60 pointer-events-none select-none">
+                <div className="absolute -left-52 -bottom-52 inset-0 flex items-end justify-start text-[55rem] text-white opacity-5 z-60 pointer-events-none select-none">
                     {getCategoryIcon(project.category)}
                 </div>
 
