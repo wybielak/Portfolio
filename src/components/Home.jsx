@@ -1,61 +1,54 @@
-import React, { useEffect, useState } from 'react'
-import { FaFacebook, FaInstagram, FaJs, FaPython, FaReact, FaUnity, FaWordpressSimple } from "react-icons/fa";
+import React, { useEffect, useMemo, useState } from "react";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import Menu from "./Menu";
-import { TbBrandCpp, TbBrandCSharp, TbMenu4 } from "react-icons/tb";
-import { SiGodotengine } from "react-icons/si";
-import { Navigate, NavLink, useSearchParams } from "react-router-dom";
-import { observer } from 'mobx-react-lite'
-import { useStore } from '../mobx/Store'
-import ProjectCard from './ProjectCard'
+import { useSearchParams } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import { useStore } from "../mobx/Store";
 import { motion } from "framer-motion";
-import { button, div } from 'framer-motion/client';
-import ProjectDetails from './ProjectDetails';
-
+import ProjectDetails from "./ProjectDetails";
 
 export default observer(function Home() {
-
     const [searchParams, setSearchParams] = useSearchParams();
+    const { appStorage } = useStore();
 
-    const { appStorage } = useStore()
-    const [projects, setProjects] = useState([])
-    const [description, setDescription] = useState("")
-
+    const [projects, setProjects] = useState([]);
     const [showPhone, setShowPhone] = useState(false);
 
-    const text = "Cześć! Stwórzmy razem twoją stronę lub aplikację internetową"
-    const colors = ["text-mistGray", "text-softBeige", "text-silverBlue", "text-sageGreen"]
+    const text = "Tworzę strony i aplikacje, które zarabiają i budują zaufanie";
+    const colors = ["text-mistGray", "text-softBeige", "text-silverBlue", "text-sageGreen"];
 
-    const [letters, setLetters] = useState(
-        text.split("").map((char, idx) => ({
-            char,
-            visible: false,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            id: idx,
-        }))
+    const initialLetters = useMemo(
+        () =>
+            text.split("").map((char, idx) => ({
+                char,
+                visible: false,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                id: idx,
+            })),
+        [text]
     );
 
+    const [letters, setLetters] = useState(initialLetters);
+
     useEffect(() => {
-        let remaining = [...letters.keys()]
+        setLetters(initialLetters);
 
+        let remaining = [...Array(initialLetters.length).keys()];
         const interval = setInterval(() => {
-            if (!remaining.length) return clearInterval(interval)
+            if (!remaining.length) return clearInterval(interval);
 
-            const randIndex = Math.floor(Math.random() * remaining.length)
-            const [letterIndex] = remaining.splice(randIndex, 1)
+            const randIndex = Math.floor(Math.random() * remaining.length);
+            const [letterIndex] = remaining.splice(randIndex, 1);
 
-            setLetters(prev =>
-                prev.map((l, idx) =>
-                    idx === letterIndex ? { ...l, visible: true } : l
-                )
-            )
-        }, 20)
+            setLetters((prev) => prev.map((l, idx) => (idx === letterIndex ? { ...l, visible: true } : l)));
+        }, 20);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [initialLetters]);
 
     useEffect(() => {
-        setProjects(appStorage.devProjects)
-    }, [])
+        setProjects(appStorage.devProjects || []);
+    }, [appStorage.devProjects]);
 
     return (
         <>
@@ -63,8 +56,8 @@ export default observer(function Home() {
 
                 <Menu />
 
-                <div id="home" className="bg-darkBrown p-8 w-full h-screen flex flex-col items-center justify-center relative overflow-hidden">
-                    <p className="text-5xl md:text-6xl font-bold">
+                <section id="home" className="bg-darkBrown p-8 w-full h-screen flex flex-col items-center justify-center relative overflow-hidden">
+                    <p className="text-5xl md:text-6xl font-bold text-center max-w-5xl">
                         {letters.map((l) => (
                             <span key={l.id} className={`${l.visible ? l.color : "opacity-0"} transition-opacity duration-300`}>
                                 {l.char}
@@ -72,73 +65,135 @@ export default observer(function Home() {
                         ))}
                     </p>
 
-                    <div className="pointer-events-none absolute -top-20 -right-20 w-[28rem] h-[28rem] rounded-full bg-deepBlue/20 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-20 -left-20 w-[24rem] h-[24rem] rounded-full bg-sageGreen/10 blur-3xl" />
-                </div>
+                    <motion.p
+                        className="mt-8 text-xl md:text-2xl text-softBeige/80 text-center max-w-3xl"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        Strony wizytówki, landing page’e i aplikacje webowe. Szybka wycena, sprawna współpraca i wsparcie po wdrożeniu.
+                    </motion.p>
 
+                    <motion.div
+                        className="mt-10 flex flex-col sm:flex-row gap-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.35 }}
+                    >
+                        <a href="#contact" className="px-6 py-3 rounded-xl bg-mossGreen text-darkBrown font-semibold transition-colors duration-300 hover:bg-sageGreen text-center">
+                            Darmowa wycena
+                        </a>
+                        <a href="#projects" className="px-6 py-3 rounded-xl bg-white/10 text-softBeige font-semibold transition hover:bg-white/15 text-center">
+                            Zobacz realizacje
+                        </a>
+                    </motion.div>
 
-                <div
-                    id="about"
-                    className="bg-softBeige w-full h-full md:h-screen flex flex-col lg:flex-row items-center justify-between relative overflow-hidden"
-                >
-                    {/* Rozmyte tło */}
-                    <div className="pointer-events-none absolute -top-5 -right-24 w-[20rem] h-[20rem] rounded-full bg-forestGreen/15 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-24 -left-24 w-[22rem] h-[22rem] rounded-full bg-forestBrown/10 blur-3xl" />
+                    <div className="pointer-events-none absolute top-0 right-0 w-[28rem] h-[28rem] rounded-full bg-deepBlue/20 blur-3xl -translate-x-1/3 -translate-y-1/3" />
+                    <div className="pointer-events-none absolute bottom-0 left-0 w-[24rem] h-[24rem] rounded-full bg-sageGreen/10 blur-3xl translate-x-1/3 -translate-y-1/3" />
+                </section>
 
-                    {/* Tekst */}
-                    <div className="p-8 lg:w-1/2 flex flex-col items-start justify-center gap-y-8 z-20">
-                        <motion.p
-                            className="text-5xl md:text-6xl font-bold text-forestBrown"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0 }}
-                        >
-                            Nazywam się Dawid Nowakowski
-                        </motion.p>
+                <section id="offer" className="bg-darkBrown w-full h-full md:h-screen flex flex-col items-center justify-center relative overflow-hidden">
+                    <div className="w-full max-w-6xl p-8 grid grid-cols-1 lg:grid-cols-2 gap-10 z-10">
+                        <div className="flex flex-col justify-center gap-y-8">
+                            <motion.h2
+                                className="text-5xl md:text-6xl font-bold text-mossGreen leading-tight"
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                Oferta
+                            </motion.h2>
 
-                        <motion.p
-                            className="text-3xl md:text-4xl font-bold text-forestBrown"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                        >
-                            Informatyka jest moją ścieżką kariery, ale również pasją
-                        </motion.p>
+                            <motion.p
+                                className="text-2xl md:text-3xl text-softBeige/80"
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.15 }}
+                            >
+                                Projektuję i wdrażam strony oraz aplikacje webowe, które są szybkie, czytelne i przyjazne dla użytkownika.
+                            </motion.p>
 
-                        <motion.p
-                            className="text-2xl md:text-3xl text-forestBrown"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                            Dokładam wszelkich starań, aby projekty tworzone dla Ciebie zawsze były na najwyższym poziomie.
-                        </motion.p>
+                            <motion.div
+                                className="flex flex-col sm:flex-row gap-4 pt-2"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.25 }}
+                            >
+                                <a href="#contact" className="px-6 py-3 rounded-xl bg-mossGreen text-darkBrown font-semibold transition-colors duration-300 hover:bg-sageGreen text-center">
+                                    Darmowa wycena
+                                </a>
+                                <a href="#projects" className="px-6 py-3 rounded-xl bg-white/10 text-softBeige font-semibold transition hover:bg-white/15 text-center">
+                                    Zobacz realizacje
+                                </a>
+                            </motion.div>
+                        </div>
+
+                        <div className="flex flex-col justify-center gap-y-8">
+                            <motion.div
+                                className="flex flex-wrap gap-3"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.15 }}
+                            >
+                                {["Szybkie ładowanie", "Responsywność", "Podstawy SEO", "Wsparcie po wdrożeniu", "UX", "Przyjazny interface"].map((item) => (
+                                    <span key={item} className="px-4 py-2 rounded-full bg-white/10 text-softBeige text-lg border border-white/10">
+                                        {item}
+                                    </span>
+                                ))}
+                            </motion.div>
+
+                            <motion.div
+                                className="rounded-3xl bg-white/5 border border-white/10 shadow-xl p-8"
+                                initial={{ opacity: 0, x: 40 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                            >
+
+                                <h3 className="text-3xl font-bold text-softBeige mb-6">Co mogę dla Ciebie zrobić</h3>
+
+                                <ul className="text-xl text-softBeige/80 space-y-4">
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
+                                        <span><b>Strona firmowa</b> — czytelna oferta, budowanie zaufania i kontakt.</span>
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
+                                        <span><b>Landing page</b> — jedna usługa, jedno CTA, pod kampanię lub sprzedaż.</span>
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
+                                        <span><b>Aplikacja webowa</b> — logowanie, panel zarządznia, API, integracje.</span>
+                                    </li>
+                                    <li className="flex gap-3">
+                                        <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
+                                        <span><b>Wdrożenie i opieka</b> — domena, hosting, rozwój, wsparcie techniczne.</span>
+                                    </li>
+                                </ul>
+
+                                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                                    <a href="#colab" className="px-6 py-3 rounded-xl bg-white/10 text-softBeige font-semibold transition hover:bg-white/15 text-center">
+                                        Zobacz etapy współpracy
+                                    </a>
+                                    <a href="#contact" className="px-6 py-3 rounded-xl bg-mossGreen text-darkBrown font-semibold transition-colors duration-300 hover:bg-sageGreen text-center">
+                                        Napisz do mnie
+                                    </a>
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
 
-                    {/* Zdjęcie */}
-                    <motion.div
-                        className="lg:w-1/2 flex justify-center items-center p-8 z-10"
-                        initial={{ opacity: 0, x: 100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        <img
-                            src="/images/bg6.jpg"
-                            alt="Dawid Nowakowski"
-                            className="w-full max-w-xl rounded-3xl shadow-2xl object-cover object-center border-4 border-forestBrown/10"
-                        />
-                    </motion.div>
-                </div>
+                    <div className="pointer-events-none absolute top-0 right-0 w-[20rem] h-[20rem] rounded-full bg-sageGreen/5 blur-3xl -translate-x-1/3 translate-y-1/3" />
+                    <div className="pointer-events-none absolute bottom-0 left-0 w-[22rem] h-[22rem] rounded-full bg-deepBlue/20 blur-3xl translate-x-1/3 -translate-y-1/3" />
+                </section>
 
-
-                <div
-                    id="colab"
-                    className="bg-darkBrown p-8 w-full h-full md:h-screen flex flex-col items-center justify-center gap-y-10 relative overflow-hidden"
-                >
+                <section id="colab" className="bg-darkBrown p-8 w-full h-full md:h-screen flex flex-col items-center justify-center gap-y-10 relative overflow-hidden">
                     <motion.h2
                         className="text-5xl mt-10 font-bold text-mossGreen text-center"
                         initial={{ y: -30, opacity: 0 }}
@@ -156,50 +211,31 @@ export default observer(function Home() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        Oferuję tworzenie witryn internetowych, aplikacji i programów dopasowanych do Twoich potrzeb.
-                        Współpraca przebiega w trzech prostych etapach:
+                        Oferuję tworzenie witryn internetowych i aplikacji dopasowanych do Twoich potrzeb. Współpraca przebiega w trzech prostych etapach:
                     </motion.p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mt-4">
-                        <motion.div
-                            className="rounded-2xl p-6 bg-white/5 hover:bg-white/10 transition text-center"
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.15 }}
-                        >
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mt-4"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
+                    >
+                        <div className="rounded-2xl border border-white/10 p-6 bg-white/5 hover:bg-white/10 transition text-center">
                             <h3 className="text-2xl font-semibold text-sageGreen mb-2">1. Ustalenie założeń</h3>
-                            <p className="text-softBeige text-lg">
-                                Omawiamy, co ma powstać. Strona, aplikacja lub program. Określamy funkcje i wygląd.
-                            </p>
-                        </motion.div>
+                            <p className="text-softBeige text-lg">Omawiamy cel, zakres, wygląd i priorytety.</p>
+                        </div>
 
-                        <motion.div
-                            className="rounded-2xl p-6 bg-white/5 hover:bg-white/10 transition text-center"
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.25 }}
-                        >
+                        <div className="rounded-2xl border border-white/10 p-6 bg-white/5 hover:bg-white/10 transition text-center">
                             <h3 className="text-2xl font-semibold text-sageGreen mb-2">2. Realizacja</h3>
-                            <p className="text-softBeige text-lg">
-                                Tworzę projekt zgodnie z ustaleniami. Na bieżąco możesz zobaczyć efekty prac.
-                            </p>
-                        </motion.div>
+                            <p className="text-softBeige text-lg">Tworzę projekt zgodnie z ustaleniami. Na bieżąco możesz zobaczyć efekty prac.</p>
+                        </div>
 
-                        <motion.div
-                            className="rounded-2xl p-6 bg-white/5 hover:bg-white/10 transition text-center"
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.35 }}
-                        >
+                        <div className="rounded-2xl border border-white/10 p-6 bg-white/5 hover:bg-white/10 transition text-center">
                             <h3 className="text-2xl font-semibold text-sageGreen mb-2">3. Wdrożenie</h3>
-                            <p className="text-softBeige text-lg">
-                                Gotowy projekt trafia do dystrybucji. Pomagam też z konfiguracją i wsparciem.
-                            </p>
-                        </motion.div>
-                    </div>
+                            <p className="text-softBeige text-lg">Publikacja, konfiguracja i wsparcie.</p>
+                        </div>
+                    </motion.div>
 
                     <motion.a
                         href="#contact"
@@ -212,290 +248,307 @@ export default observer(function Home() {
                         Skontaktuj się
                     </motion.a>
 
+                    <div className="pointer-events-none absolute top-0 right-0 w-[28rem] h-[28rem] rounded-full bg-deepBlue/20 blur-3xl -translate-x-1/3" />
+                    <div className="pointer-events-none absolute bottom-0 left-0 w-[24rem] h-[24rem] rounded-full bg-sageGreen/10 blur-3xl translate-x-1/3" />
+                </section>
 
-                    <div className="pointer-events-none absolute -top-20 -left-20 w-[28rem] h-[28rem] rounded-full bg-deepBlue/20 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-20 -right-20 w-[24rem] h-[24rem] rounded-full bg-sageGreen/10 blur-3xl" />
-                </div>
+                <section id="projects" className="bg-softBeige w-full relative overflow-hidden">
+                    <div className="pointer-events-none absolute top-0 right-0 w-[30rem] h-[30rem] md:w-[36rem] md:h-[36rem] rounded-full bg-deepBlue/10 blur-3xl -translate-x-1/4 -translate-y-1/4" />
+                    <div className="pointer-events-none absolute bottom-0 left-0 w-[28rem] h-[28rem] md:w-[34rem] md:h-[34rem] rounded-full bg-forestGreen/10 blur-3xl translate-x-1/4 -translate-y-1/4" />
 
-                <div id="projects" className="bg-softBeige p-8 w-full  flex flex-col items-center justify-start relative overflow-hidden" >
-
-                    <motion.h1
-                        className="mt-20 text-6xl font-bold text-deepBlue"
-                        initial={{ y: -30, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0 }}
-                    >
-                        Sprawdź moje poprzednie projekty
-                    </motion.h1>
-
-                    <motion.div
-                        className='mx-4 my-24 flex flex-col justify-center md:flex-row flex-wrap gap-8'
-                        initial={{ y: 50, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        {projects.map((project, index) => (
-                            <div
-                                key={index}
-                                className='w-72 h-96 flex flex-col justify-between rounded-2xl bg-deepBlue/90 transition shadow-xl hover:scale-105 hover:bg-deepBlue/100 hover:cursor-pointer'
-                                onClick={() => setSearchParams({ project: project.id })}
+                    <div className="w-full max-w-6xl mx-auto px-8 py-16 lg:py-24 relative z-10">
+                        <div className="text-center max-w-3xl mx-auto">
+                            <motion.h1
+                                className="text-5xl md:text-6xl font-bold text-deepBlue"
+                                initial={{ y: -20, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
                             >
-                                {/* <div className="text-5xl self-end m-4">
-                                    {project.category === "react" && <FaReact />}
-                                    {project.category === "cpp" && <TbBrandCpp />}
-                                    {project.category === "py" && <FaPython />}
-                                    {project.category === "godot" && <SiGodotengine />}
-                                    {project.category === "unity" && <FaUnity />}
-                                    {project.category === "js" && <FaJs />}
-                                    {project.category === "wp" && <FaWordpressSimple />}
-                                </div> */}
+                                Efekty współprac
+                            </motion.h1>
 
-                                <div className="text-2xl self-end m-4">
-                                    <p>project_id: {project.id}</p>
-                                </div>
-
-                                <h1 className='text-3xl self-start font-semibold m-4'>
-                                    {project.short_name}
-                                </h1>
-                            </div>
-                        ))}
-                    </motion.div>
-
-                    <div className="pointer-events-none absolute -top-20 -right-20 w-[20rem] h-[20rem] rounded-full bg-forestGreen/10 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-20 -right-20 w-[22rem] h-[22rem] rounded-full bg-deepBlue/10 blur-3xl" />
-
-                    {/* <div className='px-4 mt-24 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
-                        {projects.map((project, index) => (
-                            <ProjectCard key={index} project={project} />
-                        ))}
-                    </div> */}
-
-                </div>
-
-                {/* <div id="technologies" className="bg-forestGreen p-8 w-full h-halfscreen flex flex-col items-center justify-evenly relative overflow-hidden">
-
-                    <h2 className="text-5xl text-center">Zobacz z jakich technologii korzystam</h2>
-
-                    <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center !text-deepBlue">
-                        <motion.a
-                            href="https://www.python.org"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0 }}
-                        >
-                            <FaPython />
-                        </motion.a>
-
-                        <motion.a
-                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <FaJs />
-                        </motion.a>
-
-                        <motion.a
-                            href="https://isocpp.org"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                            <TbBrandCpp />
-                        </motion.a>
-
-                        <motion.a
-                            href="https://learn.microsoft.com/en-us/dotnet/csharp/"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                        >
-                            <TbBrandCSharp />
-                        </motion.a>
-                    </p>
-
-                    <p className="text-5xl md:text-7xl flex flex-wrap gap-8 items-center justify-center">
-                        <motion.a
-                            href="https://react.dev"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0 }}
-                        >
-                            <FaReact />
-                        </motion.a>
-
-                        <motion.a
-                            href="https://wordpress.org"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <FaWordpressSimple />
-                        </motion.a>
-
-                        <motion.a
-                            href="https://godotengine.org"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                        >
-                            <SiGodotengine />
-                        </motion.a>
-
-                        <motion.a
-                            href="https://unity.com"
-                            target="_blank"
-                            initial={{ y: -50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                        >
-                            <FaUnity />
-                        </motion.a>
-                    </p>
-
-                    <div className="pointer-events-none absolute -top-16 -left-20 w-[22rem] h-[22rem] rounded-full bg-silverBlue/10 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-16 -right-20 w-[20rem] h-[20rem] rounded-full bg-deepBlue/15 blur-3xl" />
-
-                </div> */}
-
-                <div id="motto" className="bg-silverBlue p-8 w-full h-screen flex flex-col items-center justify-center gap-y-8 relative overflow-hidden" >
-                    <motion.p
-                        className="text-3xl md:text-4xl text-forestGreen"
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0 }}
-                    >
-                        W życiu kieruję się zasadą
-                    </motion.p>
-
-                    <motion.p
-                        className="text-4xl md:text-5xl font-bold text-forestGreen text-center"
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                        &quot;Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.&quot;
-                    </motion.p>
-
-                    <motion.p
-                        className="text-2xl self-end md:text-3xl text-forestGreen"
-                        initial={{ x: -200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        Dawid Nowakowski
-                    </motion.p>
-
-                    <div className="pointer-events-none absolute -top-28 -left-20 w-[24rem] h-[24rem] rounded-full bg-forestGreen/10 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-24 -right-20 w-[20rem] h-[20rem] rounded-full bg-charcoal/15 blur-3xl" />
-
-                </div>
-
-                <div
-                    id="contact"
-                    className="bg-darkBrown w-full flex flex-col lg:flex-row items-center justify-center relative overflow-hidden"
-                >
-                    {/* Rozmyte tło */}
-                    <div className="pointer-events-none absolute -bottom-16 -right-24 w-[26rem] h-[26rem] rounded-full bg-mossGreen/5 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-20 -left-16 w-[22rem] h-[22rem] rounded-full bg-sageGreen/10 blur-3xl" />
-
-                    {/* Zdjęcie – w tym samym stylu co ABOUT */}
-                    <motion.div
-                        className="lg:w-1/2 flex justify-center items-center p-8 z-10"
-                        initial={{ opacity: 0, x: -100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        <img
-                            src="/images/bg7.jpg"
-                            alt="Dawid Nowakowski"
-                            className="w-full max-w-xl rounded-3xl shadow-2xl object-cover object-center border-4 border-forestBrown/10"
-                        />
-                    </motion.div>
-
-                    {/* Tekst – wyśrodkowany pionowo jak w oryginale */}
-                    <div className="p-8 w-auto h-screen flex flex-col items-center justify-center gap-y-8 z-20">
-                        <div className="my-8 flex flex-col gap-y-6 text-center">
-                            <h2 className="text-5xl font-bold">Napisz do mnie!</h2>
-                            <h3 className="text-3xl">Razem wyniesiemy twoją stronę na wyższy poziom</h3>
+                            <motion.p
+                                className="mt-6 text-xl md:text-2xl text-forestBrown/70"
+                                initial={{ opacity: 0, y: 12 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: 0.1 }}
+                            >
+                                Zobacz przykładowe realizacje — od landingów po aplikacje webowe. Kliknij projekt, żeby zobaczyć szczegóły.
+                            </motion.p>
                         </div>
 
-                        <div className="flex flex-col items-center justify-between w-full">
-                            <p className="my-8 flex flex-col items-center text-xl md:text-2xl gap-y-1">
-                                <a
-                                    href="mailto:dawidnowakowski87@gmail.com"
-                                    className="opacity-70 transition hover:opacity-100"
+                        <motion.div
+                            className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                            initial={{ y: 20, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            {projects.map((project, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setSearchParams({ project: project.id })}
+                                    className="group text-left rounded-3xl bg-white/70 border border-forestBrown/10 shadow-xl hover:shadow-2xl transition overflow-hidden"
                                 >
-                                    dawidnowakowski87@gmail.com
-                                </a>
-                                {showPhone ? (
-                                    <a
-                                        href="tel:+48696776531"
-                                        className="opacity-70 transition hover:opacity-100"
-                                    >
-                                        +48 696 776 531
-                                    </a>
-                                ) : (
-                                    <button
-                                        onClick={() => setShowPhone(true)}
-                                        className="opacity-70 transition hover:opacity-100"
-                                    >
-                                        +48 ••• pokaż numer
-                                    </button>
-                                )}
+                                    <div className="p-7 flex flex-col items-start justify-center gap-5 relative">
+                                        <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-deepBlue/10 blur-3xl" />
+
+                                        <div className="flex items-start justify-between">
+                                            <h2 className="text-2xl md:text-3xl font-bold text-deepBlue leading-snug group-hover:opacity-90 transition">
+                                                {project.short_name}
+                                            </h2>
+
+                                            <span className="text-sm font-semibold text-deepBlue/60 bg-white/70 border border-deepBlue/10 px-3 py-1 rounded-full">
+                                                #{project.id}
+                                            </span>
+                                        </div>
+
+                                        <p className="text-base md:text-lg text-forestBrown/70">
+                                            Kliknij, aby zobaczyć szczegóły realizacji.
+                                        </p>
+
+                                        <div className="pt-2 flex items-center justify-between">
+                                            <span className="text-sm text-forestBrown/60">Zobacz szczegóły</span>
+                                            <span className="text-lg text-deepBlue/60 group-hover:text-deepBlue transition">
+                                                →
+                                            </span>
+                                        </div>
+                                    </div>
+                                </button>
+                            ))}
+                        </motion.div>
+
+                        <motion.div
+                            className="mt-14 flex justify-center"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, delay: 0.1 }}
+                        >
+                            <a href="#contact" className="px-6 py-3 rounded-xl bg-deepBlue text-softBeige font-semibold transition hover:opacity-90 text-center">
+                                Chcę podobny projekt
+                            </a>
+                        </motion.div>
+                    </div>
+                </section>
+
+                <section id="about" className="bg-softBeige w-full relative overflow-hidden">
+                    <div className="pointer-events-none absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full bg-deepBlue/20 blur-3xl translate-x-1/4 -translate-y-1/4" />
+
+                    <div className="w-full max-w-6xl mx-auto px-8 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                        <div className="flex flex-col gap-y-8">
+                            <motion.p
+                                className="text-5xl md:text-6xl font-bold text-forestBrown leading-tight"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                Nazywam się Dawid Nowakowski
+                            </motion.p>
+
+                            <motion.p
+                                className="text-2xl md:text-3xl font-semibold text-forestBrown/90"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.1 }}
+                            >
+                                Przeprowadze twoją stronę lub aplikację od pomysłu do wdrożenia.
+                            </motion.p>
+
+                            <motion.p
+                                className="text-xl md:text-2xl text-forestBrown/80 max-w-xl"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                            >
+                                Stawiam na jakość, szybkość działania i przejrzysty proces. Chcę, żeby Twoja strona nie tylko wyglądała dobrze,
+                                ale realnie pomagała w zdobywaniu klientów.
+                            </motion.p>
+
+                            <motion.div
+                                className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: 0.25 }}
+                            >
+                                <div className="rounded-2xl bg-white/60 border border-forestBrown/10 p-5 shadow-sm">
+                                    <p className="text-sm text-forestBrown/60">Podejście</p>
+                                    <p className="text-lg font-semibold text-forestBrown">Komunikacja</p>
+                                    <p className="mt-2 text-sm text-forestBrown/70">Jasny zakres i komunikacja.</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-white/60 border border-forestBrown/10 p-5 shadow-sm">
+                                    <p className="text-sm text-forestBrown/60">Standard</p>
+                                    <p className="text-lg font-semibold text-forestBrown">Jakość</p>
+                                    <p className="mt-2 text-sm text-forestBrown/70">Czysty kod i dobre praktyki programistyczne.</p>
+                                </div>
+
+                                <div className="rounded-2xl bg-white/60 border border-forestBrown/10 p-5 shadow-sm">
+                                    <p className="text-sm text-forestBrown/60">Efekt</p>
+                                    <p className="text-lg font-semibold text-forestBrown">Wynik</p>
+                                    <p className="mt-2 text-sm text-forestBrown/70">Strona, która działa i sprzedaje.</p>
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        <motion.div
+                            className="flex justify-center items-center"
+                            initial={{ opacity: 0, x: 60 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.15 }}
+                        >
+                            <img
+                                src="/images/bg6.jpg"
+                                alt="Dawid Nowakowski"
+                                className="w-full max-w-xl rounded-3xl shadow-2xl object-cover object-center border-4 border-forestBrown/10"
+                            />
+                        </motion.div>
+                    </div>
+                </section>
+
+                <section id="motto" className="bg-silverBlue w-full relative overflow-hidden">
+                    <div className="pointer-events-none absolute top-0 left-0 w-[28rem] h-[28rem] md:w-[34rem] md:h-[34rem] rounded-full bg-forestGreen/10 blur-3xl -translate-x-1/4 -translate-y-1/4" />
+                    <div className="pointer-events-none absolute bottom-0 right-0 w-[30rem] h-[30rem] md:w-[36rem] md:h-[36rem] rounded-full bg-charcoal/10 blur-3xl translate-x-1/4 -translate-y-1/4" />
+
+                    <div className="w-full max-w-5xl mx-auto px-8 py-20 lg:py-28 relative z-10">
+                        <motion.p
+                            className="text-3xl md:text-4xl text-forestGreen"
+                            initial={{ x: -200, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            W życiu kieruję się zasadą
+                        </motion.p>
+
+                        <motion.div
+                            className="mt-6 rounded-3xl bg-white/50 border border-forestGreen/10 shadow-xl p-10 md:p-12"
+                            initial={{ opacity: 0, y: 25 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                        >
+                            <p className="text-5xl md:text-6xl leading-none text-forestGreen/40 select-none">“</p>
+
+                            <p className="mt-4 text-3xl md:text-4xl font-bold text-forestGreen text-center leading-snug">
+                                Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.
                             </p>
 
-                            <p className="my-8 flex flex-row text-6xl gap-x-16">
-                                <a
-                                    target="_blank"
-                                    href="https://www.facebook.com/dawid.nowakowski.wybielak?locale=pl_PL"
-                                    className="opacity-60 transition hover:opacity-90"
+                            <div className="mt-8 flex items-center justify-end">
+                                <div className="h-px w-12 bg-forestGreen/30 mr-4" />
+                                <p className="text-lg md:text-xl font-semibold text-forestGreen">Dawid Nowakowski</p>
+                            </div>
+                        </motion.div>
+
+                        <motion.p
+                            className="mt-8 text-base md:text-lg text-forestGreen/70 text-center"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.25 }}
+                        >
+                            Konsekwencja i dobrze zaplanowany proces stanowią klucz do sukcesu.
+                        </motion.p>
+                    </div>
+                </section>
+
+                <section id="contact" className="bg-darkBrown w-full relative overflow-hidden">
+                    <div className="pointer-events-none absolute top-0 right-0 w-[34rem] h-[34rem] rounded-full bg-mossGreen/10 blur-3xl -translate-x-1/4 -translate-y-1/4" />
+                    <div className="pointer-events-none absolute bottom-0 left-0 w-[30rem] h-[30rem] rounded-full bg-deepBlue/20 blur-3xl translate-x-1/4 -translate-y-1/4" />
+
+                    <div className="w-full max-w-6xl mx-auto px-8 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                        <motion.div
+                            className="flex justify-center items-center"
+                            initial={{ opacity: 0, x: -60 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                        >
+                            <img
+                                src="/images/bg7.jpg"
+                                alt="Dawid Nowakowski"
+                                className="w-full max-w-xl rounded-3xl shadow-2xl object-cover object-center border-4 border-white/10"
+                            />
+                        </motion.div>
+
+                        <div className="flex flex-col justify-center gap-y-8 text-softBeige">
+                            <div className="space-y-4">
+                                <motion.h2
+                                    className="text-4xl md:text-6xl font-bold leading-tight"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7 }}
                                 >
-                                    <FaFacebook />
-                                </a>
-                                <a
-                                    target="_blank"
-                                    href="https://www.instagram.com/wybielak/"
-                                    className="opacity-60 transition hover:opacity-90"
+                                    Porozmawiajmy o Twoim projekcie
+                                </motion.h2>
+
+                                <motion.p
+                                    className="text-xl md:text-2xl text-softBeige/80 max-w-xl"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.7, delay: 0.1 }}
                                 >
-                                    <FaInstagram />
+                                    Napisz krótko co potrzebujesz (strona, aplikacja), a wrócę z propozycją i wyceną.
+                                </motion.p>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <a href="mailto:dawidnowakowski87@gmail.com" className="rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition">
+                                    <p className="text-sm text-softBeige/60">Email</p>
+                                    <p className="text-lg md:text-xl font-semibold break-all">dawidnowakowski87@gmail.com</p>
+                                    <p className="mt-2 text-sm text-softBeige/70">Najszybszy kontakt — otrzymasz odpowiedź do 24 godzin.</p>
                                 </a>
+
+                                {showPhone ? (
+                                    <a href="tel:+48696776531" className="rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition">
+                                        <p className="text-sm text-softBeige/60">Telefon</p>
+                                        <p className="text-lg md:text-xl font-semibold">+48 696 776 531</p>
+                                        <p className="mt-2 text-sm text-softBeige/70">Preferujesz rozmowę? Zadzwoń lub napisz SMS.</p>
+                                    </a>
+                                ) : (
+                                    <button onClick={() => setShowPhone(true)} className="text-left rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition">
+                                        <p className="text-sm text-softBeige/60">Telefon</p>
+                                        <p className="text-lg md:text-xl font-semibold">+48 ••• pokaż numer</p>
+                                        <p className="mt-2 text-sm text-softBeige/70">Kliknij, aby wyświetlić numer.</p>
+                                    </button>
+                                )}
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                                <a href="mailto:dawidnowakowski87@gmail.com?subject=Wycena%20projektu" className="px-6 py-3 rounded-xl bg-mossGreen text-darkBrown font-semibold transition-colors duration-300 hover:bg-sageGreen text-center">
+                                    Poproś o wycenę
+                                </a>
+
+                                <div className="flex items-center gap-6 text-5xl">
+                                    <a target="_blank" rel="noreferrer" href="https://www.facebook.com/dawid.nowakowski.wybielak?locale=pl_PL" className="opacity-60 transition hover:opacity-90">
+                                        <FaFacebook />
+                                    </a>
+                                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/wybielak/" className="opacity-60 transition hover:opacity-90">
+                                        <FaInstagram />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <p className="text-sm text-softBeige/60">
+                                Wycena jest darmowa i niezobowiązująca. Możemy zacząć od krótkiej rozmowy i opisu potrzeb.
                             </p>
                         </div>
                     </div>
-                </div>
-
-
-            </div >
+                </section>
+            </div>
 
             {searchParams.get("project") && (
-                <ProjectDetails
-                    projectId={searchParams.get("project")}
-                    onClose={() => setSearchParams({})}
-                />
+                <ProjectDetails projectId={searchParams.get("project")} onClose={() => setSearchParams({})} />
             )}
         </>
-
-    )
-})
+    );
+});

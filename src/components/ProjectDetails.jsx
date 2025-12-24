@@ -52,7 +52,7 @@ export default function ProjectDetails({ projectId, onClose }) {
             onClick={() => onClose()}
         >
             <motion.div
-                className="relative bg-deepBlue p-8 flex items-start justify-center max-w-3xl h-screen md:h-auto w-screen md:w-full text-white overflow-hidden"
+                className="relative bg-deepBlue p-8 flex items-start justify-center max-w-3xl h-screen md:h-auto w-screen md:w-full rounded-lg text-white overflow-hidden"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 50, opacity: 0 }}
