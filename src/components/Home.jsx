@@ -309,7 +309,7 @@ export default observer(function Home() {
                                             Kliknij, aby zobaczyć szczegóły realizacji.
                                         </p>
 
-                                        <div className="pt-2 flex items-center justify-between">
+                                        <div className="pt-2 w-full flex items-center justify-between">
                                             <span className="text-sm text-forestBrown/60">Zobacz szczegóły</span>
                                             <span className="text-lg text-deepBlue/60 group-hover:text-deepBlue transition">
                                                 →
