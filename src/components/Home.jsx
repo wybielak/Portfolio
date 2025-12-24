@@ -56,8 +56,8 @@ export default observer(function Home() {
 
                 <Menu />
 
-                <section id="home" className="bg-darkBrown p-8 w-full h-screen flex flex-col items-center justify-center relative overflow-hidden">
-                    <p className="text-5xl md:text-6xl font-bold text-center max-w-5xl">
+                <section id="home" className="bg-darkBrown p-8 w-full h-full md:h-screen flex flex-col items-center justify-center relative overflow-hidden">
+                    <p className="text-5xl md:text-6xl mt-20 md:mt-0 font-bold text-center max-w-5xl">
                         {letters.map((l) => (
                             <span key={l.id} className={`${l.visible ? l.color : "opacity-0"} transition-opacity duration-300`}>
                                 {l.char}
@@ -108,7 +108,7 @@ export default observer(function Home() {
                             </motion.h2>
 
                             <motion.p
-                                className="text-2xl md:text-3xl text-softBeige/80"
+                                className="text-xl md:text-xl text-softBeige/80"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -156,9 +156,9 @@ export default observer(function Home() {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                             >
 
-                                <h3 className="text-3xl font-bold text-softBeige mb-6">Co mogę dla Ciebie zrobić</h3>
+                                <h3 className="text-2xl font-bold text-softBeige mb-6">Co mogę dla Ciebie zrobić</h3>
 
-                                <ul className="text-xl text-softBeige/80 space-y-4">
+                                <ul className="text-lg text-softBeige/80 space-y-4">
                                     <li className="flex gap-3">
                                         <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
                                         <span><b>Strona firmowa</b> — czytelna oferta, budowanie zaufania i kontakt.</span>
@@ -205,7 +205,7 @@ export default observer(function Home() {
                     </motion.h2>
 
                     <motion.p
-                        className="text-2xl text-sageGreen text-center max-w-3xl"
+                        className="text-xl text-sageGreen text-center max-w-3xl"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
@@ -222,17 +222,17 @@ export default observer(function Home() {
                         transition={{ duration: 0.5, delay: 0.15 }}
                     >
                         <div className="rounded-2xl border border-white/10 p-6 bg-white/5 hover:bg-white/10 transition text-center">
-                            <h3 className="text-2xl font-semibold text-sageGreen mb-2">1. Ustalenie założeń</h3>
+                            <h3 className="text-xl font-semibold text-sageGreen mb-2">1. Ustalenie założeń</h3>
                             <p className="text-softBeige text-lg">Omawiamy cel, zakres, wygląd i priorytety.</p>
                         </div>
 
                         <div className="rounded-2xl border border-white/10 p-6 bg-white/5 hover:bg-white/10 transition text-center">
-                            <h3 className="text-2xl font-semibold text-sageGreen mb-2">2. Realizacja</h3>
+                            <h3 className="text-xl font-semibold text-sageGreen mb-2">2. Realizacja</h3>
                             <p className="text-softBeige text-lg">Tworzę projekt zgodnie z ustaleniami. Na bieżąco możesz zobaczyć efekty prac.</p>
                         </div>
 
                         <div className="rounded-2xl border border-white/10 p-6 bg-white/5 hover:bg-white/10 transition text-center">
-                            <h3 className="text-2xl font-semibold text-sageGreen mb-2">3. Wdrożenie</h3>
+                            <h3 className="text-xl font-semibold text-sageGreen mb-2">3. Wdrożenie</h3>
                             <p className="text-softBeige text-lg">Publikacja, konfiguracja i wsparcie.</p>
                         </div>
                     </motion.div>
@@ -269,7 +269,7 @@ export default observer(function Home() {
                             </motion.h1>
 
                             <motion.p
-                                className="mt-6 text-xl md:text-2xl text-forestBrown/70"
+                                className="mt-6 text-xl md:text-xl text-forestBrown/70"
                                 initial={{ opacity: 0, y: 12 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -296,7 +296,7 @@ export default observer(function Home() {
                                         <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-deepBlue/10 blur-3xl" />
 
                                         <div className="flex items-start justify-between">
-                                            <h2 className="text-2xl md:text-3xl font-bold text-deepBlue leading-snug group-hover:opacity-90 transition">
+                                            <h2 className="text-2xl md:text-xl font-bold text-deepBlue leading-snug group-hover:opacity-90 transition">
                                                 {project.short_name}
                                             </h2>
 
@@ -350,7 +350,7 @@ export default observer(function Home() {
                             </motion.p>
 
                             <motion.p
-                                className="text-2xl md:text-3xl font-semibold text-forestBrown/90"
+                                className="text-xl md:text-xl font-semibold text-forestBrown/90"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -360,7 +360,7 @@ export default observer(function Home() {
                             </motion.p>
 
                             <motion.p
-                                className="text-xl md:text-2xl text-forestBrown/80 max-w-xl"
+                                className="text-xl md:text-xl text-forestBrown/80 max-w-xl"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -378,21 +378,21 @@ export default observer(function Home() {
                                 transition={{ duration: 0.7, delay: 0.25 }}
                             >
                                 <div className="rounded-2xl bg-white/60 border border-forestBrown/10 p-5 shadow-sm">
-                                    <p className="text-sm text-forestBrown/60">Podejście</p>
-                                    <p className="text-lg font-semibold text-forestBrown">Komunikacja</p>
-                                    <p className="mt-2 text-sm text-forestBrown/70">Jasny zakres i komunikacja.</p>
+                                    <p className="text-md text-forestBrown/60">Podejście</p>
+                                    <p className="text-xl font-semibold text-forestBrown">Komunikacja</p>
+                                    <p className="mt-2 text-md text-forestBrown/70">Jasny zakres i komunikacja.</p>
                                 </div>
 
                                 <div className="rounded-2xl bg-white/60 border border-forestBrown/10 p-5 shadow-sm">
-                                    <p className="text-sm text-forestBrown/60">Standard</p>
-                                    <p className="text-lg font-semibold text-forestBrown">Jakość</p>
-                                    <p className="mt-2 text-sm text-forestBrown/70">Czysty kod i dobre praktyki programistyczne.</p>
+                                    <p className="text-md text-forestBrown/60">Standard</p>
+                                    <p className="text-xl font-semibold text-forestBrown">Jakość</p>
+                                    <p className="mt-2 text-md text-forestBrown/70">Czysty kod i dobre praktyki programistyczne.</p>
                                 </div>
 
                                 <div className="rounded-2xl bg-white/60 border border-forestBrown/10 p-5 shadow-sm">
-                                    <p className="text-sm text-forestBrown/60">Efekt</p>
-                                    <p className="text-lg font-semibold text-forestBrown">Wynik</p>
-                                    <p className="mt-2 text-sm text-forestBrown/70">Strona, która działa i sprzedaje.</p>
+                                    <p className="text-md text-forestBrown/60">Efekt</p>
+                                    <p className="text-xl font-semibold text-forestBrown">Wynik</p>
+                                    <p className="mt-2 text-md text-forestBrown/70">Strona, która działa i sprzedaje.</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -419,7 +419,7 @@ export default observer(function Home() {
 
                     <div className="w-full max-w-5xl mx-auto px-8 py-20 lg:py-28 relative z-10">
                         <motion.p
-                            className="text-3xl md:text-4xl text-forestGreen"
+                            className="text-2xl md:text-4xl text-forestGreen"
                             initial={{ x: -200, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true }}
@@ -437,7 +437,7 @@ export default observer(function Home() {
                         >
                             <p className="text-5xl md:text-6xl leading-none text-forestGreen/40 select-none">“</p>
 
-                            <p className="mt-4 text-3xl md:text-4xl font-bold text-forestGreen text-center leading-snug">
+                            <p className="mt-4 text-2xl md:text-4xl font-bold text-forestGreen text-center leading-snug">
                                 Mając odpowiednio dużo czasu i determinacji, możesz osiągnąć wszystko.
                             </p>
 
@@ -491,7 +491,7 @@ export default observer(function Home() {
                                 </motion.h2>
 
                                 <motion.p
-                                    className="text-xl md:text-2xl text-softBeige/80 max-w-xl"
+                                    className="text-xl md:text-xl text-softBeige/80 max-w-xl"
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
