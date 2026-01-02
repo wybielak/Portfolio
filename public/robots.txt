@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dawid-nw-portfolio.web.app/sitemap.xml
