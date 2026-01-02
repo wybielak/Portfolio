@@ -7,6 +7,7 @@ export default class AppStorage {
     }
 
     devProjects = [
+        { "id": "10", "short_name": "Aplikacja do statystyk finansowych", "name": "Cashflow", "description": "Aplikacja pozwalająza śledzić przepływ środków w firmie na podstawie danych o fakturach.", "date": "XII 2025", "category": "react", "photo": "/images/dev/cashflow1.jpg", "github": "", "youtube": "", "directlink": ""},
         { "id": "9", "short_name": "Witryna pływalni", "name": "Pływalnia Wodnik", "description": "Nowa witryna internetowa dla pływalni, spełniająca wszystkie wymagania witryn internetowych dla firm.", "date": "IX 2025", "category": "wp", "photo": "/images/dev/wodnik1.jpg", "github": "", "youtube": "", "directlink": "https://wodnik-paniowki.pl/"},
         { "id": "8", "short_name": "Panel zarządzania procesami IT", "name": "IT Dashboard", "description": "Panel pozwalający śledzić aktualny stan procesów informatycznych w firmie.", "date": "V2024", "category": "react", "photo": "/images/dev/dashboard1.jpg", "github": "", "youtube": "", "directlink": ""},
         { "id": "7", "short_name": "Sklep internetowy z podłogami", "name": "WITAN Centrum Podłóg", "description": "Sklep internetowy firmy Witan Centrum Podłóg.", "date": "II2024", "category": "shop", "photo": "/images/dev/sklepwitan1.jpg", "github": "", "youtube": "", "directlink": "https://sklep.witan-posadzki.pl/"},

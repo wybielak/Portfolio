@@ -295,7 +295,7 @@ export default observer(function Home() {
                                     <div className="p-7 flex flex-col items-start justify-center gap-5 relative">
                                         <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-deepBlue/10 blur-3xl" />
 
-                                        <div className="flex items-start justify-between">
+                                        <div className="w-full flex items-start justify-between">
                                             <h2 className="text-2xl md:text-xl font-bold text-deepBlue leading-snug group-hover:opacity-90 transition">
                                                 {project.short_name}
                                             </h2>
