@@ -161,19 +161,19 @@ export default observer(function Home() {
                                 <ul className="text-lg text-softBeige/80 space-y-4">
                                     <li className="flex gap-3">
                                         <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
-                                        <span><b>Strona firmowa</b> — czytelna oferta, budowanie zaufania i kontakt.</span>
+                                        <span><b>Strona firmowa</b> - czytelna oferta, budowanie zaufania i kontakt.</span>
                                     </li>
                                     <li className="flex gap-3">
                                         <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
-                                        <span><b>Landing page</b> — jedna usługa, jedno CTA, pod kampanię lub sprzedaż.</span>
+                                        <span><b>Landing page</b> - jedna usługa, jedno CTA, pod kampanię lub sprzedaż.</span>
                                     </li>
                                     <li className="flex gap-3">
                                         <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
-                                        <span><b>Aplikacja webowa</b> — logowanie, panel zarządznia, API, integracje.</span>
+                                        <span><b>Aplikacja webowa</b> - logowanie, panel zarządznia, API, integracje.</span>
                                     </li>
                                     <li className="flex gap-3">
                                         <span className="mt-2 w-2 h-3 rounded-full bg-softBeige/40" />
-                                        <span><b>Wdrożenie i opieka</b> — domena, hosting, rozwój, wsparcie techniczne.</span>
+                                        <span><b>Wdrożenie i opieka</b> - domena, hosting, rozwój, wsparcie techniczne.</span>
                                     </li>
                                 </ul>
 
@@ -275,7 +275,7 @@ export default observer(function Home() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.7, delay: 0.1 }}
                             >
-                                Zobacz przykładowe realizacje — od landingów po aplikacje webowe. Kliknij projekt, żeby zobaczyć szczegóły.
+                                Zobacz przykładowe realizacje - od landingów po aplikacje webowe. Kliknij projekt, żeby zobaczyć szczegóły.
                             </motion.p>
                         </div>
 
@@ -505,7 +505,7 @@ export default observer(function Home() {
                                 <a href="mailto:dawidnowakowski87@gmail.com" className="rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 transition">
                                     <p className="text-sm text-softBeige/60">Email</p>
                                     <p className="text-lg md:text-xl font-semibold break-all">dawidnowakowski87@gmail.com</p>
-                                    <p className="mt-2 text-sm text-softBeige/70">Najszybszy kontakt — otrzymasz odpowiedź do 24 godzin.</p>
+                                    <p className="mt-2 text-sm text-softBeige/70">Najszybszy kontakt - otrzymasz odpowiedź do 24 godzin.</p>
                                 </a>
 
                                 {showPhone ? (
