@@ -30,6 +30,10 @@ export default observer(function Home() {
 
     const [letters, setLetters] = useState(initialLetters);
 
+    const shortText = (t) => {
+        return t.length > 50 ? t.slice(0, 50) + "..." : t
+    }
+
     useEffect(() => {
         setLetters(initialLetters);
 
@@ -306,7 +310,7 @@ export default observer(function Home() {
                                         </div>
 
                                         <p className="text-base md:text-lg text-forestBrown/70">
-                                            Kliknij, aby zobaczyć szczegóły realizacji.
+                                            {shortText(project.description)}
                                         </p>
 
                                         <div className="pt-2 w-full flex items-center justify-between">
@@ -356,7 +360,7 @@ export default observer(function Home() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, delay: 0.1 }}
                             >
-                                Przeprowadze twoją stronę lub aplikację od pomysłu do wdrożenia.
+                                Przeprowadzę twoją stronę lub aplikację od pomysłu do wdrożenia.
                             </motion.p>
 
                             <motion.p
