@@ -15,6 +15,7 @@ export default class AppStorage {
             date: "I 2026",
             category: "react",
             photo: "/images/dev/znajdzinwest1.jpg",
+            photo_mobile: "/images/dev/znajdzinwest1-mobile.jpg",
             github: "",
             youtube: "",
             directlink: "https://znajdz-inwestycje.web.app/"
@@ -27,9 +28,10 @@ export default class AppStorage {
             date: "I 2026",
             category: "wp",
             photo: "/images/dev/wybielak1.jpg",
+            photo_mobile: "/images/dev/wybielak1-mobile.jpg",
             github: "",
             youtube: "",
-            directlink: "https://znajdz-inwestycje.web.app/"
+            directlink: "https://wybielak-workshop.pl/"
         },
         {
             id: "10",
@@ -39,6 +41,7 @@ export default class AppStorage {
             date: "XII 2025",
             category: "react",
             photo: "/images/dev/cashflow1.jpg",
+            photo_mobile: "/images/dev/cashflow1-mobile.jpg",
             github: "",
             youtube: "",
             directlink: ""
@@ -51,6 +54,7 @@ export default class AppStorage {
             date: "IX 2025",
             category: "wp",
             photo: "/images/dev/wodnik1.jpg",
+            photo_mobile: "/images/dev/wodnik1-mobile.jpg",
             github: "",
             youtube: "",
             directlink: "https://wodnik-paniowki.pl/"
@@ -63,6 +67,7 @@ export default class AppStorage {
             date: "V 2024",
             category: "react",
             photo: "/images/dev/dashboard1.jpg",
+            photo_mobile: "/images/dev/dashboard1-mobile.jpg",
             github: "",
             youtube: "",
             directlink: ""
@@ -75,6 +80,7 @@ export default class AppStorage {
             date: "II 2024",
             category: "shop",
             photo: "/images/dev/sklepwitan1.jpg",
+            photo_mobile: "/images/dev/sklepwitan1-mobile.jpg",
             github: "",
             youtube: "",
             directlink: "https://sklep.witan-posadzki.pl/"
@@ -87,46 +93,11 @@ export default class AppStorage {
             date: "I 2024",
             category: "py",
             photo: "/images/dev/scraperhub1.jpg",
+            photo_mobile: "/images/dev/scraperhub1-mobile.jpg",
             github: "",
             youtube: "",
             directlink: ""
-        },
-        {
-            id: "5",
-            short_name: "Aplikacja zachęcająca do ruchu na świeżym powietrzu",
-            name: "Misty Horizon",
-            description: "Odkrywaj mgłę na mapie prawdziwego świata i dodawaj ciekawe miejsca w odkrytych lokalizacjach.",
-            date: "XII 2024",
-            category: "unity",
-            photo: "/images/dev/mistyhorizon1.jpg",
-            github: "",
-            youtube: "https://youtube.com/shorts/kasVuHcKGoc?feature=share",
-            directlink: ""
-        },
-        {
-            id: "4",
-            short_name: "Aplikacja fitness",
-            name: "Califit",
-            description: "Planuj i zapisuj twoje treningi i ćwiczenia.",
-            date: "X 2024",
-            category: "react",
-            photo: "/images/dev/califit1.jpg",
-            github: "https://github.com/wybielak/CaliFit",
-            youtube: "https://youtube.com/shorts/0nrO-G-5kDQ?feature=share",
-            directlink: "https://califit-a4835.web.app/"
-        },
-        {
-            id: "3",
-            short_name: "Aplikacja do zapisywania wdzięczności",
-            name: "Kansha",
-            description: "Twórz kartki z kalendarza i zapisuj rzeczy za które jesteś wdzięczny.",
-            date: "VI 2024",
-            category: "react",
-            photo: "/images/dev/kansha1.jpg",
-            github: "https://github.com/wybielak/Kansha",
-            youtube: "https://youtube.com/shorts/Xwb9ZFUucaI?feature=share",
-            directlink: "https://kansha-72cc0.web.app/"
-        },
+        }
     ];
 
 }

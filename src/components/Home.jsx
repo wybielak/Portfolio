@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import { useStore } from "../mobx/Store";
 import { motion } from "framer-motion";
 import ProjectDetails from "./ProjectDetails";
+import ProjectsCarousel from "./ProjectsCarousel";
 
 export default observer(function Home() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -260,7 +261,7 @@ export default observer(function Home() {
                     <div className="pointer-events-none absolute top-0 right-0 w-[30rem] h-[30rem] md:w-[36rem] md:h-[36rem] rounded-full bg-deepBlue/10 blur-3xl -translate-x-1/4 -translate-y-1/4" />
                     <div className="pointer-events-none absolute bottom-0 left-0 w-[28rem] h-[28rem] md:w-[34rem] md:h-[34rem] rounded-full bg-forestGreen/10 blur-3xl translate-x-1/4 -translate-y-1/4" />
 
-                    <div className="w-full max-w-6xl mx-auto px-8 py-16 lg:py-24 relative z-10">
+                    <div className="w-full sm:max-w-7xl mx-auto py-16 lg:py-24 relative z-10">
                         <div className="text-center max-w-3xl mx-auto">
                             <motion.h1
                                 className="text-5xl md:text-6xl font-bold text-deepBlue"
@@ -279,50 +280,11 @@ export default observer(function Home() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.7, delay: 0.1 }}
                             >
-                                Zobacz przykładowe realizacje - od landingów po aplikacje webowe. Kliknij projekt, żeby zobaczyć szczegóły.
+                                Zobacz przykładowe realizacje - od landingów po aplikacje webowe.
                             </motion.p>
                         </div>
 
-                        <motion.div
-                            className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                        >
-                            {projects.map((project, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => setSearchParams({ project: project.id })}
-                                    className="group text-left rounded-3xl bg-white/70 border border-forestBrown/10 shadow-xl hover:shadow-2xl transition overflow-hidden"
-                                >
-                                    <div className="p-7 flex flex-col items-start justify-center gap-5 relative">
-                                        <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-deepBlue/10 blur-3xl" />
-
-                                        <div className="w-full flex items-start justify-between">
-                                            <h2 className="text-2xl md:text-xl font-bold text-deepBlue leading-snug group-hover:opacity-90 transition">
-                                                {project.short_name}
-                                            </h2>
-
-                                            <span className="text-sm font-semibold text-deepBlue/60 bg-white/70 border border-deepBlue/10 px-3 py-1 rounded-full">
-                                                #{project.id}
-                                            </span>
-                                        </div>
-
-                                        <p className="text-base md:text-lg text-forestBrown/70">
-                                            {shortText(project.description)}
-                                        </p>
-
-                                        <div className="pt-2 w-full flex items-center justify-between">
-                                            <span className="text-sm text-forestBrown/60">Zobacz szczegóły</span>
-                                            <span className="text-lg text-deepBlue/60 group-hover:text-deepBlue transition">
-                                                →
-                                            </span>
-                                        </div>
-                                    </div>
-                                </button>
-                            ))}
-                        </motion.div>
+                        <ProjectsCarousel projects={projects} />
 
                         <motion.div
                             className="mt-14 flex justify-center"
@@ -338,7 +300,7 @@ export default observer(function Home() {
                     </div>
                 </section>
 
-                <section id="about" className="bg-softBeige w-full relative overflow-hidden">
+                <section id="about" className="bg-softBeige w-full h-full lg:h-screen flex flex-col items-center justify-center relative overflow-hidden">
                     <div className="pointer-events-none absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full bg-deepBlue/20 blur-3xl translate-x-1/4 -translate-y-1/4" />
 
                     <div className="w-full max-w-6xl mx-auto px-8 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
@@ -463,7 +425,7 @@ export default observer(function Home() {
                     </div>
                 </section>
 
-                <section id="contact" className="bg-darkBrown w-full relative overflow-hidden">
+                <section id="contact" className="bg-darkBrown w-full h-full lg:h-screen flex flex-col items-center justify-center relative overflow-hidden">
                     <div className="pointer-events-none absolute top-0 right-0 w-[34rem] h-[34rem] rounded-full bg-mossGreen/10 blur-3xl -translate-x-1/4 -translate-y-1/4" />
                     <div className="pointer-events-none absolute bottom-0 left-0 w-[30rem] h-[30rem] rounded-full bg-deepBlue/20 blur-3xl translate-x-1/4 -translate-y-1/4" />
 
