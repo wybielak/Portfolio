@@ -8,10 +8,23 @@ export default class AppStorage {
 
     devProjects = [
         {
-            id: "12",
+            id: "14",
             short_name: "Nowoczesna wyszukiwarka inwestycji",
             name: "Znajdź Inwestycję",
             description: "Platforma do analizy inwestycji, filtrowanie, podgląd na mapie, monitoring zmian w jednym miejscu.",
+            date: "I 2026",
+            category: "react",
+            photo: "/images/dev/znajdzinwest2.jpg",
+            photo_mobile: "/images/dev/znajdzinwest2-mobile.jpg",
+            github: "",
+            youtube: "",
+            directlink: "https://znajdz-inwestycje.web.app/"
+        },
+        {
+            id: "13",
+            short_name: "Nowoczesna wyszukiwarka inwestycji",
+            name: "Znajdź Inwestycję",
+            description: "Platforma umożliwia przejrzyste wyszukiwanie i oznaczanie inwestycji w interesującym nas regionie.",
             date: "I 2026",
             category: "react",
             photo: "/images/dev/znajdzinwest1.jpg",
@@ -19,6 +32,19 @@ export default class AppStorage {
             github: "",
             youtube: "",
             directlink: "https://znajdz-inwestycje.web.app/"
+        },
+        {
+            id: "12",
+            short_name: "Strona internetowa usług Femdomowych",
+            name: "Mistress Delilah",
+            description: "Strona internetowa wizytówka, z odnośnikami do social mediów i danymi kontaktowymi dla usług femdomowych",
+            date: "II 2026",
+            category: "wp",
+            photo: "/images/dev/delilah1.jpg",
+            photo_mobile: "/images/dev/delilah1-mobile.jpg",
+            github: "",
+            youtube: "",
+            directlink: "https://mistressdelilah.com/"
         },
         {
             id: "11",

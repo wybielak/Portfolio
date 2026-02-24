@@ -510,6 +510,47 @@ export default observer(function Home() {
                         </div>
                     </div>
                 </section>
+
+                <section id="contact" className="bg-darkBrown w-full h-full flex flex-col items-center justify-center relative overflow-hidden">
+                    <div className="w-full px-8 py-16 text-softBeige/60 flex flex-col justify-start items-start md:justify-evenly md:items-start md:flex-row gap-5">
+                        <div>
+                            <h1 className="text-xl mb-2 text-softBeige/80">Strony internetowe</h1>
+                            <p>Tworzenie stron internetowych</p>
+                            <p>Wsparcie stron</p>
+                            <p>Wsparcie 24/7</p>
+                            <p>Pozycjonowanie stron</p>
+                            <p>Dostosowanie stron do WCAG</p>
+                            <p>Optymalizacja SEO</p>
+                        </div>
+                        <div>
+                            <h1 className="text-xl mb-2 text-softBeige/80">E-commerce</h1>
+                            <p>Tworzenie sklepów internetowych</p>
+                            <p>Wsparcie sklepów</p>
+                            <p>Wsparcie 24/7</p>
+                            <p>Pozycjonowanie stron</p>
+                            <p>Dostosowanie stron do WCAG</p>
+                        </div>
+                        <div>
+                            <h1 className="text-xl mb-2 text-softBeige/80">Aplikacje</h1>
+                            <p>Tworzenie aplikacji webowych</p>
+                            <p>Tworzenie aplikacji mobilnych</p>
+                            <p>Tworzenie aplikacji desktopowych</p>
+                            <p>Wsparcie techniczne</p>
+                            <p>Wsparcie 24/7</p>
+                            <p>Integracje z API</p>
+                        </div>
+                        <div>
+                            <h1 className="text-xl mb-2 text-softBeige/80">Lokalizacja</h1>
+                            <p>Śląsk</p>
+                            <p>Gliwice</p>
+                            <p>Katowice</p>
+                            <p>Zabrze</p>
+                            <p>Ruda Śląska</p>
+                            <p>Cała Polska</p>
+                        </div>
+                    </div>
+                </section>
+
             </div>
 
             {searchParams.get("project") && (
