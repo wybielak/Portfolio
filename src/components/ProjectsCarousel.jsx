@@ -51,20 +51,23 @@ export default function ProjectsCarousel({ projects }) {
     return (
         <div className="w-full mt-10">
             {/* MOBILE controls */}
-            <div className="flex lg:hidden items-center justify-center gap-4 mb-8">
-                <button onClick={prevMobile} className="px-2 sm:px-4 py-2 rounded-xl bg-white/60 text-deepBlue font-semibold hover:bg-white/80 transition">Poprzedni</button>
+            <div className="flex lg:hidden flex-col items-center justify-center gap-4 mb-8">
 
-                <div className="flex items-center gap-1 sm:gap-2">
+                <div className="inline-flex gap-6">
+                    <button onClick={prevMobile} className="px-2 sm:px-4 py-2 rounded-xl bg-white/60 text-deepBlue font-semibold hover:bg-white/80 transition">Poprzedni</button>
+                    <button onClick={nextMobile} className="px-2 sm:px-4 py-2 rounded-xl bg-white/60 text-deepBlue font-semibold hover:bg-white/80 transition">Następny</button>
+                </div>
+
+                <div className="flex items-center gap-2">
                     {items.map((_, idx) => (
                         <button key={idx} onClick={() => dotGoMobile(idx)} className={`${idx === active ? "w-10 bg-deepBlue" : "w-2.5 bg-deepBlue/30"} h-2.5 rounded-full transition-all`} />
                     ))}
                 </div>
 
-                <button onClick={nextMobile} className="px-2 sm:px-4 py-2 rounded-xl bg-white/60 text-deepBlue font-semibold hover:bg-white/80 transition">Następny</button>
             </div>
 
             {/* DESKTOP controls */}
-            <div className="hidden lg:flex items-center justify-center gap-4 mb-8">
+            <div className="hidden lg:flex items-center justify-center gap-2 md:gap-4 mb-8">
                 <button onClick={prev} className="px-2 sm:px-4 py-2 rounded-xl bg-white/60 text-deepBlue font-semibold hover:bg-white/80 transition">Poprzedni</button>
 
                 <div className="flex items-center gap-1 sm:gap-2">

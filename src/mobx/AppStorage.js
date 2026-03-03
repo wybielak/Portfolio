@@ -35,19 +35,6 @@ export default class AppStorage {
         },
         {
             id: "12",
-            short_name: "Strona internetowa usług Femdomowych",
-            name: "Mistress Delilah",
-            description: "Strona internetowa wizytówka, z odnośnikami do social mediów i danymi kontaktowymi dla usług femdomowych",
-            date: "II 2026",
-            category: "wp",
-            photo: "/images/dev/delilah1.jpg",
-            photo_mobile: "/images/dev/delilah1-mobile.jpg",
-            github: "",
-            youtube: "",
-            directlink: "https://mistressdelilah.com/"
-        },
-        {
-            id: "11",
             short_name: "Witryna lokalnego knifemakera",
             name: "Wybielak Workshop",
             description: "Strona internetowa - wizytówka lokalnego knifemakera rozwijącego swoją markę noży.",
@@ -60,7 +47,7 @@ export default class AppStorage {
             directlink: "https://wybielak-workshop.pl/"
         },
         {
-            id: "10",
+            id: "11",
             short_name: "Aplikacja do statystyk finansowych",
             name: "Cashflow",
             description: "Aplikacja pozwalająza śledzić przepływ środków w firmie na podstawie danych o fakturach.",
@@ -73,7 +60,7 @@ export default class AppStorage {
             directlink: ""
         },
         {
-            id: "9",
+            id: "10",
             short_name: "Witryna pływalni",
             name: "Pływalnia Wodnik",
             description: "Nowa witryna internetowa dla pływalni, spełniająca wszystkie wymagania witryn internetowych dla firm.",
@@ -86,7 +73,7 @@ export default class AppStorage {
             directlink: "https://wodnik-paniowki.pl/"
         },
         {
-            id: "8",
+            id: "9",
             short_name: "Panel zarządzania procesami IT",
             name: "IT Dashboard",
             description: "Panel pozwalający śledzić aktualny stan procesów informatycznych w firmie.",
@@ -99,7 +86,7 @@ export default class AppStorage {
             directlink: ""
         },
         {
-            id: "7",
+            id: "8",
             short_name: "Sklep internetowy z podłogami",
             name: "WITAN Centrum Podłóg",
             description: "Sklep internetowy firmy Witan Centrum Podłóg.",
@@ -110,6 +97,19 @@ export default class AppStorage {
             github: "",
             youtube: "",
             directlink: "https://sklep.witan-posadzki.pl/"
+        },
+        {
+            id: "7",
+            short_name: "Strona internetowa usług Femdomowych",
+            name: "Mistress Delilah",
+            description: "Strona internetowa wizytówka, z odnośnikami do social mediów i danymi kontaktowymi dla usług femdomowych",
+            date: "II 2026",
+            category: "wp",
+            photo: "/images/dev/delilah1.jpg",
+            photo_mobile: "/images/dev/delilah1-mobile.jpg",
+            github: "",
+            youtube: "",
+            directlink: "https://mistressdelilah.com/"
         },
         {
             id: "6",
